@@ -10,6 +10,40 @@ import { AnimatedCounter } from "@/components/ui/animated-counter";
 
 const vaultBg = "https://res.cloudinary.com/dymamigxu/image/upload/v1773858764/img8_g8l6vb.jpg";
 
+// ── Live counter hook — polls Google Apps Script API every 30s ─
+const COUNTER_API_URL = import.meta.env.VITE_COUNTER_API_URL as string;
+const COUNTER_API_KEY = import.meta.env.VITE_COUNTER_API_KEY as string;
+const FALLBACK_COUNT = 11147;
+const POLL_INTERVAL = 30_000; // 30 seconds
+
+function useLivePlayerCount() {
+  const [count, setCount] = useState(FALLBACK_COUNT);
+
+  useEffect(() => {
+    if (!COUNTER_API_URL || !COUNTER_API_KEY) return; // env not configured yet
+
+    const fetchCount = async () => {
+      try {
+        const url = `${COUNTER_API_URL}?key=${COUNTER_API_KEY}&_=${Date.now()}`; // cache-bust
+        const res = await fetch(url);
+        if (!res.ok) return;
+        const json = await res.json();
+        if (json.status === "success" && typeof json.data?.count === "number") {
+          setCount(json.data.count);
+        }
+      } catch {
+        // silently keep last known value
+      }
+    };
+
+    fetchCount();
+    const id = setInterval(fetchCount, POLL_INTERVAL);
+    return () => clearInterval(id);
+  }, []);
+
+  return count;
+}
+
 const springEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 function fadeUpProps(delay = 0) {
@@ -24,6 +58,7 @@ function fadeUpProps(delay = 0) {
 // Single continuous wave across line1 only; line2 is fixed red with weld sparks
 // ── Main Export ───────────────────────────────────────────────────────────────
 export default function Home() {
+  const livePlayerCount = useLivePlayerCount();
   const { scrollYProgress } = useScroll();
   const heroY = useTransform(scrollYProgress, [0, 0.35], [0, 100]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0.65]);
@@ -190,7 +225,7 @@ export default function Home() {
                 <motion.div {...fadeUpProps(0.3)} className="grid grid-cols-2 gap-3 sm:gap-4 max-w-2xl w-full mb-3">
                   <div className="premium-card prize-card-animated rounded-xl p-4 sm:p-5 border border-white/[0.08] bg-black/90 backdrop-blur-sm">
                     <p className="text-[24px] sm:text-[28px] md:text-[32px] font-display font-black text-white leading-none mb-2">
-                      <AnimatedCounter value={11147} />
+                      <AnimatedCounter value={livePlayerCount} />
                     </p>
                     <p className="text-white/55 text-[10px] sm:text-[11px] leading-tight">Player's Joined Till Now</p>
                   </div>
