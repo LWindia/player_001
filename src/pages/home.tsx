@@ -211,26 +211,23 @@ export default function Home() {
               <motion.div className="absolute inset-0 z-0" style={{ y: heroY, opacity: heroOpacity }}>
                 {/* Mobile Image */}
                 <img
-                  src="https://res.cloudinary.com/dymamigxu/image/upload/v1774518086/banner-image-mobile-version-images.jpg_wga5oi.jpg"
+                  src="https://res.cloudinary.com/dymamigxu/image/upload/v1774698080/mobile-version-heroo.jpg_1_unnfle.jpg"
                   alt=""
                   className="block sm:hidden w-full h-full object-cover object-center"
-                  style={{ filter: "brightness(0.6) saturate(1.2) contrast(1.05)" }}
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
                 />
                 {/* Desktop Image */}
                 <img
-                  src="https://res.cloudinary.com/dymamigxu/image/upload/v1773860420/s41_k0egsf.jpg"
+                  src="https://res.cloudinary.com/dymamigxu/image/upload/v1774698080/Hero_Desktop_Home_1_sfzf9n.jpg"
                   alt=""
                   className="hidden sm:block w-full h-full object-cover object-center"
-                  style={{ filter: "brightness(0.6) saturate(1.2) contrast(1.05)" }}
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
                 />
               </motion.div>
-              <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/40 via-transparent to-black" />
             </div>
 
             {/* LIVE Stats Boxes - Below Image (No Background) */}
