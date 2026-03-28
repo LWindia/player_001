@@ -350,8 +350,8 @@ export default function Enquire() {
               <div className="space-y-2 mb-6">
                 <p className="text-white font-display font-bold text-[15px] md:text-[17px]">LinuxWorld Informatics Pvt Ltd</p>
                 <p className="text-white/70 text-[14px]">Jaipur, India</p>
-                <p className="text-white/70 text-[14px]">Contact: +91 XXXXX XXXXX</p>
-                <p className="text-white/70 text-[14px]">Email: <a href="mailto:support@player001.in" className="text-primary hover:underline">support@player001.in</a></p>
+                <p className="text-white/70 text-[14px]">Contact: +91 77339 55151</p>
+                <p className="text-white/70 text-[14px]">Email: <a href="mailto:support@player-001.com" className="text-primary hover:underline">support@player-001.com</a></p>
               </div>
               <p className="text-white/50 text-[13px] italic">
                 This is not just digital.<br />There's a system. A team. A structure behind it.
