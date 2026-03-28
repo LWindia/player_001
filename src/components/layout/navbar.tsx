@@ -23,7 +23,6 @@ export function Navbar() {
     { name: "Home", path: "/" },
     { name: "Game Access Pass", path: "/viewers" },
     { name: "Careers", path: "/careers" },
-    { name: "Become A Player", path: "/become-a-player" },
     { name: "Become a Sponsor", path: "/sponsorship" },
     { name: "FAQ", path: "/faq" },
     { name: "Terms & conditions", path: "/terms" },

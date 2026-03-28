@@ -12,7 +12,6 @@ import Game from "@/pages/game";
 import Journey from "@/pages/journey";
 import Viewers from "@/pages/viewers";
 import Application from "@/pages/application";
-import BecomeAPlayer from "@/pages/become-a-player";
 import Careers from "@/pages/careers";
 import Sponsorship from "@/pages/sponsorship";
 import ThankYou from "@/pages/thank-you";
@@ -68,7 +67,6 @@ function Router() {
       <Route path="/journey" component={Journey} />
       <Route path="/viewers" component={Viewers} />
       <Route path="/application" component={Application} />
-      <Route path="/become-a-player" component={BecomeAPlayer} />
       <Route path="/careers" component={Careers} />
       <Route path="/sponsorship" component={Sponsorship} />
       <Route path="/thank-you" component={ThankYou} />
