@@ -56,13 +56,13 @@ export default defineConfig({
       "/api/counter": {
         target: "https://script.google.com",
         changeOrigin: true,
-        rewrite: (_path) => `/macros/s/AKfycbxzIzU8Qc7g8Gq8jgmGT0OC_UMJI33z9XCBngFcSx9AUOQazLCxycx5Nug9vMzkkGnABw/exec?key=p001_live_k9x2mz7q&_=${Date.now()}`,
+        rewrite: (_path) => `/macros/s/AKfycbxzIzU8Qc7g8Gq8jgmGT0OC_UMJI33z9XCBngFcSx9AUOQazLCxycx5Nug9vMzkkGnABw/exec?key=p001_live_k9x2mz7q`,
         followRedirects: true,
       },
       "/api/prize": {
         target: "https://script.google.com",
         changeOrigin: true,
-        rewrite: (_path) => `/macros/s/AKfycbwGSfkaGZ5pktJE6WQlxGQQvOyFyi_KziCQFV6saj7Wt6Wgb1SyCOytTGS30m2UZKmw/exec?key=p001_prize_m8y3nz5w&_=${Date.now()}`,
+        rewrite: (_path) => `/macros/s/AKfycbwGSfkaGZ5pktJE6WQlxGQQvOyFyi_KziCQFV6saj7Wt6Wgb1SyCOytTGS30m2UZKmw/exec?key=p001_prize_m8y3nz5w`,
         followRedirects: true,
       },
     },

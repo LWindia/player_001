@@ -19,7 +19,7 @@ function useLivePlayerCount() {
   useEffect(() => {
     const fetchCount = async () => {
       try {
-        const url = `/api/counter?_=${Date.now()}`;
+        const url = `/api/counter`;
         const res = await fetch(url);
         if (!res.ok) return;
         const json = await res.json();
@@ -46,7 +46,7 @@ function useLivePrizeMoney() {
   useEffect(() => {
     const fetchAmount = async () => {
       try {
-        const url = `/api/prize?_=${Date.now()}`;
+        const url = `/api/prize`;
         const res = await fetch(url);
         if (!res.ok) return;
         const json = await res.json();
