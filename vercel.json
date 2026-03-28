@@ -3,5 +3,18 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist/public",
   "framework": "vite",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    {
+      "source": "/api/counter",
+      "destination": "https://script.google.com/macros/s/AKfycbwTd3wpeKQV6LBsmkFBxTT8T3kiLi9DZ4McrVsV-CFuaOxqucnsi8eB8a3FvmQNnefoBA/exec?key=p001_live_k9x2mz7q"
+    },
+    {
+      "source": "/api/prize",
+      "destination": "https://script.google.com/macros/s/AKfycbwGSfkaGZ5pktJE6WQlxGQQvOyFyi_KziCQFV6saj7Wt6Wgb1SyCOytTGS30m2UZKmw/exec?key=p001_prize_m8y3nz5w"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
