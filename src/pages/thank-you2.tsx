@@ -1,6 +1,6 @@
-﻿import { useRef, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Volume2, VolumeX, Copy, Check } from "lucide-react";
+import { Copy, Check } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ParticleBackground } from "@/components/ui/particle-background";
@@ -26,16 +26,7 @@ function Eyebrow({ label }: { label: string }) {
 }
 
 export default function ThankYou2() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoMuted, setVideoMuted] = useState(true);
   const [copied, setCopied] = useState(false);
-
-  function toggleAudio() {
-    const vid = videoRef.current;
-    if (!vid) return;
-    vid.muted = !vid.muted;
-    setVideoMuted(vid.muted);
-  }
 
   function copyInviteLink() {
     navigator.clipboard.writeText("https://www.player-001.com/").then(() => {
@@ -63,7 +54,7 @@ export default function ThankYou2() {
               <span className="block text-[clamp(1.8rem,6vw,4.5rem)] leading-[1.05] text-white">Welcome Inside</span>
               <span className="block text-[clamp(1.8rem,6vw,4.5rem)] leading-[1.05] text-primary">The Arena</span>
             </motion.h1>
-            <motion.div {...fadeUpProps(0.15)} className="max-w-2xl mb-8 space-y-3 text-center sm:text-left">
+            <motion.div {...fadeUpProps(0.15)} className="max-w-2xl space-y-3 text-center sm:text-left">
               <p className="text-white font-semibold text-[16px] md:text-[18px] leading-relaxed">
                 Your entry into Player-001 Game is now confirmed.<br />
                 You are no longer outside the system.
@@ -72,13 +63,6 @@ export default function ThankYou2() {
                 You have taken the step most people only think about.<br />
                 From here on the experience changes.
               </p>
-            </motion.div>
-            <motion.div {...fadeUpProps(0.2)} className="premium-card prize-card-animated rounded-2xl overflow-hidden relative w-full mb-8" style={{ aspectRatio: "16/9" }}>
-              <video ref={videoRef} className="absolute inset-0 w-full h-full object-cover object-center" src="https://res.cloudinary.com/dymamigxu/video/upload/v1773920629/hf_20260316_230441_b269bf4b-949d-47e4-89ff-191584e71c13_azvf7f.mp4" autoPlay muted loop playsInline preload="metadata" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-              <button type="button" onClick={toggleAudio} className="absolute bottom-4 right-4 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 border border-white/20 text-white/80 hover:text-white transition-all text-[11px] font-display tracking-[0.12em]" aria-label={videoMuted ? "Unmute" : "Mute"}>
-                {videoMuted ? <><VolumeX className="w-3.5 h-3.5" /> UNMUTE</> : <><Volume2 className="w-3.5 h-3.5" /> MUTE</>}
-              </button>
             </motion.div>
           </div>
         </section>
