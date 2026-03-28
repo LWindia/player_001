@@ -1,0 +1,20 @@
+packages:
+  "framer-motion": "For all cinematic and scroll-triggered animations"
+  "react-hook-form": "For robust player registration form handling"
+  "@hookform/resolvers": "For Zod validation integration with the form"
+  "clsx": "Utility for constructing className strings"
+  "tailwind-merge": "Utility to merge tailwind classes"
+
+images:
+  - path: "artifacts/player001/public/images/hero-bg.png"
+    description: "Dark cinematic abstract arena background with subtle red neon accents, volumetric lighting, minimal, very dark, glowing"
+    aspect_ratio: "16:9"
+  - path: "artifacts/player001/public/images/intel-bg.png"
+    description: "Tactical futuristic dashboard background texture, dark grid, subtle green scanner lines, extremely minimal, military radar aesthetic"
+    aspect_ratio: "16:9"
+  - path: "artifacts/player001/public/images/arena-texture.png"
+    description: "Rough dark concrete texture with very subtle crimson spotlight reflecting off it, grunge, cinematic"
+    aspect_ratio: "16:9"
+
+notes:
+  - The API client hooks expect mutation inputs wrapped in a `data` object: `mutate({ data: payload })`
