@@ -417,15 +417,16 @@ export default function Enquire() {
 
             {/* Final CTA */}
             <motion.div {...fadeUpProps(0.1)} className="flex justify-center">
-              <Link
-                href="/register"
+              <a
+                href="https://rzp.io/rzp/player001-could-be-you"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group relative inline-flex flex-col items-center justify-center px-12 py-5 font-display text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
-                onClick={() => window.scrollTo(0, 0)}
               >
                 <span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-350 ease-out" />
                 <span className="relative z-10 text-[13px] font-black tracking-[0.2em] uppercase mb-1">Become a Player</span>
                 <span className="relative z-10 text-[11px] font-normal tracking-[0.1em] text-white/85">₹456 — Game Arena Entry Fee</span>
-              </Link>
+              </a>
             </motion.div>
           </div>
         </section>

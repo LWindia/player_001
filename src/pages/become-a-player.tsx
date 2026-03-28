@@ -340,15 +340,10 @@ export default function BecomeAPlayer() {
             </motion.div>
 
             <motion.div {...fadeUpProps(0.25)} className="text-center">
-              <Link href="/register">
-                <button
-                  type="button"
-                  className="group relative inline-flex items-center justify-center gap-3 px-12 py-5 font-display font-bold tracking-[0.2em] text-[12px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
-                >
+              <a href="https://rzp.io/rzp/player001-could-be-you" target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center gap-3 px-12 py-5 font-display font-bold tracking-[0.2em] text-[12px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]">
                   <span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-350 ease-out" />
                   <span className="relative z-10">UNLOCK YOUR GAME GUIDE NOW</span>
-                </button>
-              </Link>
+                </a>
               <p className="text-white/60 text-[13px] md:text-[14px] mt-4">
                 Takes less than 2 minutes to begin. No selection filters. No hidden criteria.
               </p>
@@ -495,15 +490,10 @@ export default function BecomeAPlayer() {
                 </motion.div>
 
                 <motion.div {...fadeUpProps(0.3)} className="text-center flex flex-col items-center gap-4">
-                  <Link href="/register">
-                    <button
-                      type="button"
-                      className="group relative inline-flex items-center justify-center gap-3 px-12 py-5 font-display font-bold tracking-[0.2em] text-[12px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
-                    >
+                  <a href="https://rzp.io/rzp/player001-could-be-you" target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center gap-3 px-12 py-5 font-display font-bold tracking-[0.2em] text-[12px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]">
                       <span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-350 ease-out" />
                       <span className="relative z-10">UNLOCK YOUR GAME GUIDE</span>
-                    </button>
-                  </Link>
+                    </a>
                   <div className="bg-black/80 backdrop-blur-sm px-6 py-3 rounded-lg">
                     <p className="text-white/80 text-[13px] md:text-[14px]">
                       Your entry into the arena starts with one step.

@@ -458,15 +458,10 @@ export default function Home() {
                 <span className="text-primary">YOU DO</span>
               </p>
               <div className="flex flex-col items-center justify-center gap-3">
-                <Link href="/register">
-                  <a
-                    className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 font-display font-bold tracking-[0.2em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
-                    onClick={() => window.scrollTo(0, 0)}
-                  >
+                <a href="https://rzp.io/rzp/player001-could-be-you" target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 font-display font-bold tracking-[0.2em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer">
                     <span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-350 ease-out" />
                     <span className="relative z-10">👉 BECOME A PLAYER NOW</span>
                   </a>
-                </Link>
                 <p className="text-white/70 text-[13px] leading-relaxed">
                   Takes less than 2 minutes to begin.
                   <br />
@@ -583,15 +578,10 @@ export default function Home() {
                 <span className="text-primary">₹ 1 Million to ∞</span>
               </p>
               <div className="flex flex-col items-center justify-center gap-3 mt-8">
-                <Link href="/register">
-                  <a
-                    className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 font-display font-bold tracking-[0.2em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
-                    onClick={() => window.scrollTo(0, 0)}
-                  >
+                <a href="https://rzp.io/rzp/player001-could-be-you" target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 font-display font-bold tracking-[0.2em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer">
                     <span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-350 ease-out" />
                     <span className="relative z-10">👉 BECOME A PLAYER NOW</span>
                   </a>
-                </Link>
                 <p className="text-white/70 text-[13px] leading-relaxed">Your entry into the arena starts with one step.</p>
               </div>
             </motion.div>
@@ -763,15 +753,10 @@ export default function Home() {
             {/* CTA */}
             <motion.div {...fadeUpProps(0.23)} className="text-center mb-16">
               <div className="flex flex-col items-center justify-center gap-3">
-                <Link href="/register">
-                  <a
-                    className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 font-display font-bold tracking-[0.2em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
-                    onClick={() => window.scrollTo(0, 0)}
-                  >
+                <a href="https://rzp.io/rzp/player001-could-be-you" target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 font-display font-bold tracking-[0.2em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer">
                     <span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-350 ease-out" />
                     <span className="relative z-10">👉 BECOME A PLAYER NOW</span>
                   </a>
-                </Link>
                 <p className="text-white/70 text-[13px] italic">Witness the Vault Open Live</p>
               </div>
             </motion.div>
@@ -921,15 +906,10 @@ export default function Home() {
                 Every Sunday the arena eliminates thousands. Until only one Player remains.
               </p>
               <div className="flex flex-col items-center justify-center gap-3">
-                <Link href="/register">
-                  <a
-                    className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 font-display font-bold tracking-[0.2em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
-                    onClick={() => window.scrollTo(0, 0)}
-                  >
+                <a href="https://rzp.io/rzp/player001-could-be-you" target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 font-display font-bold tracking-[0.2em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer">
                     <span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-350 ease-out" />
                     <span className="relative z-10">👉 BECOME A PLAYER NOW</span>
                   </a>
-                </Link>
                 <p className="text-white/70 text-[13px] italic">Some will watch. Some will Play</p>
               </div>
             </motion.div>
@@ -1071,15 +1051,10 @@ export default function Home() {
 
             <motion.div {...fadeUpProps(0.36)} className="text-center mb-12">
               <div className="flex flex-col items-center justify-center gap-3">
-                <Link href="/register">
-                  <a
-                    className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 font-display font-bold tracking-[0.2em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
-                    onClick={() => window.scrollTo(0, 0)}
-                  >
+                <a href="https://rzp.io/rzp/player001-could-be-you" target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 font-display font-bold tracking-[0.2em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer">
                     <span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-350 ease-out" />
                     <span className="relative z-10">👉 BECOME A PLAYER NOW</span>
                   </a>
-                </Link>
                 <p className="text-white/70 text-[13px] italic">No player leaves empty handed</p>
               </div>
             </motion.div>
@@ -1220,17 +1195,12 @@ export default function Home() {
 
             <motion.div {...fadeUpProps(0.38)} className="text-center">
               <div className="flex flex-col items-center justify-center gap-3">
-                <Link href="/register">
-                  <a
-                    className="group relative inline-flex flex-col items-center justify-center w-full sm:w-auto px-10 py-5 font-display text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
-                    onClick={() => window.scrollTo(0, 0)}
-                  >
+                <a href="https://rzp.io/rzp/player001-could-be-you" target="_blank" rel="noopener noreferrer" className="group relative inline-flex flex-col items-center justify-center w-full sm:w-auto px-10 py-5 font-display text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer">
                     <span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-350 ease-out" />
                     <span className="relative z-10 text-[13px] font-black tracking-[0.2em] uppercase mb-2">👉 BECOME A PLAYER NOW</span>
                     <span className="relative z-10 text-[11px] font-normal tracking-[0.1em] text-white/85 text-center">Game Arena Entry Fee : ₹456</span>
                     <span className="relative z-10 text-[11px] font-normal tracking-[0.1em] text-white/85 text-center">Be there</span>
                   </a>
-                </Link>
               </div>
             </motion.div>
           </div>
