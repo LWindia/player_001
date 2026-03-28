@@ -1,27 +1,22 @@
-import type { VercelRequest, VercelResponse } from "@vercel/node";
+export const config = { runtime: "edge" };
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
-  const apiUrl = process.env.VITE_COUNTER_API_URL;
-  const apiKey = process.env.VITE_COUNTER_API_KEY;
-
-  if (!apiUrl || !apiKey) {
-    return res.status(500).json({ status: "error", message: "Not configured" });
-  }
-
-  const key = req.query.key as string;
-  if (!key || key !== apiKey) {
-    return res.status(401).json({ status: "error", message: "Unauthorized" });
-  }
-
+export default async function handler() {
+  const url = "https://script.google.com/macros/s/AKfycbxzIzU8Qc7g8Gq8jgmGT0OC_UMJI33z9XCBngFcSx9AUOQazLCxycx5Nug9vMzkkGnABw/exec?key=p001_live_k9x2mz7q";
   try {
-    const upstream = await fetch(`${apiUrl}?key=${apiKey}&_=${Date.now()}`, {
-      redirect: "follow",
+    const res = await fetch(url, { redirect: "follow" });
+    const data = await res.text();
+    return new Response(data, {
+      status: 200,
+      headers: {
+        "Content-Type": "application/json",
+        "Cache-Control": "no-store",
+        "Access-Control-Allow-Origin": "*",
+      },
     });
-    const data = await upstream.json();
-    res.setHeader("Cache-Control", "no-store");
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    return res.status(200).json(data);
   } catch {
-    return res.status(500).json({ status: "error", message: "Upstream error" });
+    return new Response(JSON.stringify({ status: "error", message: "Upstream error" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
   }
 }
