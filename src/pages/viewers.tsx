@@ -281,14 +281,15 @@ export default function Viewers() {
                   <p className="text-primary text-[22px] md:text-[26px] font-display font-black">₹250 + taxes</p>
                 </div>
 
-                <button
-                  type="button"
-                  onClick={scrollToExperience}
+                <a
+                  href="https://rzp.io/rzp/single-episode-access"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full group/btn relative inline-flex items-center justify-center gap-3 px-8 py-4 font-display font-bold tracking-[0.2em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
                 >
                   <span className="absolute inset-0 bg-white/12 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-350 ease-out" />
                   <span className="relative z-10">WATCH ONE EPISODE</span>
-                </button>
+                </a>
               </motion.div>
 
               {/* Card 2: Full Live Journey */}
@@ -353,14 +354,15 @@ export default function Viewers() {
                   <p className="text-primary text-[22px] md:text-[26px] font-display font-black">₹1000 + taxes</p>
                 </div>
 
-                <button
-                  type="button"
-                  onClick={scrollToExperience}
+                <a
+                  href="https://rzp.io/rzp/full-live-journey"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full group/btn relative inline-flex items-center justify-center gap-3 px-8 py-4 font-display font-bold tracking-[0.2em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
                 >
                   <span className="absolute inset-0 bg-white/12 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-350 ease-out" />
                   <span className="relative z-10">WATCH FULL JOURNEY</span>
-                </button>
+                </a>
               </motion.div>
 
               {/* Card 3: Complete Experience */}
