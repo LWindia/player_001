@@ -56,7 +56,7 @@ export default defineConfig({
       "/api/counter": {
         target: "https://script.google.com",
         changeOrigin: true,
-        rewrite: (_path) => `/macros/s/AKfycbwTd3wpeKQV6LBsmkFBxTT8T3kiLi9DZ4McrVsV-CFuaOxqucnsi8eB8a3FvmQNnefoBA/exec?key=p001_live_k9x2mz7q&_=${Date.now()}`,
+        rewrite: (_path) => `/macros/s/AKfycbxzIzU8Qc7g8Gq8jgmGT0OC_UMJI33z9XCBngFcSx9AUOQazLCxycx5Nug9vMzkkGnABw/exec?key=p001_live_k9x2mz7q&_=${Date.now()}`,
         followRedirects: true,
       },
       "/api/prize": {
