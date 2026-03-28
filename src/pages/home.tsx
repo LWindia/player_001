@@ -1,20 +1,14 @@
 import type React from "react";
 import { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Users, Zap, Volume2, VolumeX } from "lucide-react";
-import { Link } from "wouter";
+import { Volume2, VolumeX } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { SectionHeader } from "@/components/landing/section-header";
 import { ParticleBackground } from "@/components/ui/particle-background";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
 
-const BASE = import.meta.env.BASE_URL;
-const img = (filename: string) => `${BASE}assets/${filename}`;
-const heroBg = img("hf_20260310_154130_f9334d89-ecb9-4471-bdaa-c4f409908a5d.jpeg");
-const prizeBg = "https://res.cloudinary.com/dymamigxu/image/upload/v1773858750/7_lbnbem.png";
 const vaultBg = "https://res.cloudinary.com/dymamigxu/image/upload/v1773858764/img8_g8l6vb.jpg";
-const historyBg = "https://res.cloudinary.com/dymamigxu/image/upload/v1773858779/img9_fiakov.png";
 
 const springEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -28,46 +22,6 @@ function fadeUpProps(delay = 0) {
 }
 // ── Hero Headline with delayed red ignition ───────────────────────────────────
 // Single continuous wave across line1 only; line2 is fixed red with weld sparks
-function HeroHeadline() {
-  const line1 = "The World's Biggest Survival Reality Game".split(" ");
-  const total = line1.length;
-  const cycleDuration = 12;
-  const spread = 5;
-
-  const getDelay = (idx: number) => ((idx / total) * spread) - cycleDuration;
-
-  const wordStyle = (idx: number): React.CSSProperties => ({
-    animationName: "heroWave",
-    animationDuration: `${cycleDuration}s`,
-    animationDelay: `${getDelay(idx)}s`,
-    animationTimingFunction: "ease-in-out",
-    animationIterationCount: "infinite",
-    animationFillMode: "both",
-    color: "white",
-  });
-
-  return (
-    <motion.h1
-      id="hero-title"
-      {...fadeUpProps(0.15)}
-      className="font-display font-black uppercase tracking-[-0.01em] mb-6 sm:mb-4"
-      style={{ color: "white" }}
-    >
-      <span className="block leading-[1.1] sm:leading-[0.92] text-[clamp(1.25rem,5.5vw,5.1rem)] sm:text-[clamp(1.75rem,6.5vw,5.1rem)]">
-        {line1.map((word, i) => (
-          <span key={`l1-${i}`}>
-            <span style={wordStyle(i)}>{word}</span>
-            {i < line1.length - 1 ? " " : ""}
-          </span>
-        ))}
-      </span>
-      <span className="block mt-5 sm:mt-1 leading-[1.1] sm:leading-[0.92] text-[clamp(1.25rem,5.5vw,5.1rem)] sm:text-[clamp(1.75rem,6.5vw,5.1rem)]">
-        <span style={{ color: "hsl(0 100% 59%)" }}>First Time in </span><span className="weld-text">India</span>
-      </span>
-    </motion.h1>
-  );
-}
-
 // ── Main Export ───────────────────────────────────────────────────────────────
 export default function Home() {
   const { scrollYProgress } = useScroll();
