@@ -52,6 +52,20 @@ export default defineConfig({
       strict: true,
       deny: ["**/.*"],
     },
+    proxy: {
+      "/api/counter": {
+        target: "https://script.google.com",
+        changeOrigin: true,
+        rewrite: (_path) => `/macros/s/AKfycbwTd3wpeKQV6LBsmkFBxTT8T3kiLi9DZ4McrVsV-CFuaOxqucnsi8eB8a3FvmQNnefoBA/exec?key=p001_live_k9x2mz7q&_=${Date.now()}`,
+        followRedirects: true,
+      },
+      "/api/prize": {
+        target: "https://script.google.com",
+        changeOrigin: true,
+        rewrite: (_path) => `/macros/s/AKfycbwGSfkaGZ5pktJE6WQlxGQQvOyFyi_KziCQFV6saj7Wt6Wgb1SyCOytTGS30m2UZKmw/exec?key=p001_prize_m8y3nz5w&_=${Date.now()}`,
+        followRedirects: true,
+      },
+    },
   },
   preview: {
     port,

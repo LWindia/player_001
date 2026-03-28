@@ -10,6 +10,8 @@ interface AnimatedCounterProps {
 
 export function AnimatedCounter({ value, prefix = "", suffix = "", className = "" }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
+  // Track highest value ever seen — never animate downward
+  const maxValue = useRef(0);
   const motionValue = useMotionValue(0);
   const springValue = useSpring(motionValue, {
     damping: 50,
@@ -18,7 +20,10 @@ export function AnimatedCounter({ value, prefix = "", suffix = "", className = "
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   useEffect(() => {
-    if (isInView) {
+    if (!isInView) return;
+    // Only animate upward — ignore values lower than current max
+    if (value > maxValue.current) {
+      maxValue.current = value;
       motionValue.set(value);
     }
   }, [motionValue, isInView, value]);
