@@ -48,12 +48,20 @@ export default function Careers() {
 
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
-    if (file && file.type === "application/pdf") {
-      setResumeFile(file);
-    } else {
+    if (!file) return;
+    if (file.type !== "application/pdf") {
       setSubmitError("Please upload a PDF file only.");
       setResumeFile(null);
+      return;
     }
+    if (file.size > 2 * 1024 * 1024) {
+      setSubmitError("Resume must be under 2MB. Please compress your PDF and try again.");
+      setResumeFile(null);
+      if (fileInputRef.current) fileInputRef.current.value = "";
+      return;
+    }
+    setSubmitError("");
+    setResumeFile(file);
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -696,7 +704,7 @@ export default function Careers() {
                   )}
                   {/* Resume Upload */}
                   <div>
-                    <label className="block text-white/70 text-[12px] font-display tracking-[0.15em] uppercase mb-2">Upload Resume (PDF only) <span className="text-primary">*</span></label>
+                    <label className="block text-white/70 text-[12px] font-display tracking-[0.15em] uppercase mb-2">Upload Resume (PDF only, max 2MB) <span className="text-primary">*</span></label>
                     <div
                       className="w-full px-6 py-4 bg-black/40 border border-white/20 rounded-lg text-white/50 cursor-pointer hover:border-primary/60 transition-all font-display text-[14px] flex items-center gap-3"
                       onClick={() => fileInputRef.current?.click()}
