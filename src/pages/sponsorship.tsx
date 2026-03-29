@@ -126,6 +126,30 @@ export default function Sponsorship() {
                 Be part of the arena before it begins.
               </p>
             </motion.div>
+
+            <motion.div {...fadeUpProps(0.45)} className="premium-card prize-card-animated rounded-2xl overflow-hidden relative w-full mt-10" style={{ aspectRatio: "16/9" }}>
+              <video
+                ref={sponsorVideoRef}
+                className="absolute inset-0 w-full h-full object-cover object-center"
+                src="https://res.cloudinary.com/dymamigxu/video/upload/v1773860438/s56_b5vq99.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              <button
+                type="button"
+                onClick={toggleSponsorAudio}
+                className="absolute bottom-4 right-4 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 border border-white/20 text-white/80 hover:text-white hover:border-white/40 transition-all duration-200 text-[11px] font-display tracking-[0.12em]"
+                aria-label={sponsorVideoMuted ? "Unmute video" : "Mute video"}
+              >
+                {sponsorVideoMuted
+                  ? <><VolumeX className="w-3.5 h-3.5" /> UNMUTE</>
+                  : <><Volume2 className="w-3.5 h-3.5" /> MUTE</>}
+              </button>
+            </motion.div>
           </div>
         </section>
 
@@ -139,15 +163,22 @@ export default function Sponsorship() {
             </motion.div>
 
             <motion.div {...fadeUpProps(0.1)} className="premium-card prize-card-animated rounded-xl p-6 md:p-8 mb-8">
-              <p className="text-white/70 text-[14px] md:text-[16px] leading-relaxed mb-4">
+              <p className="text-white/70 text-[14px] md:text-[16px] leading-relaxed mb-6">
                 PLAYER 001 is not built for a niche audience. It is built for India's most dynamic and hard-to-reach segment.
               </p>
-              <ul className="text-white/70 text-[14px] md:text-[16px] leading-relaxed space-y-2 mb-4">
-                <li>• 1,00,000+ players entering the arena</li>
-                <li>• Nationwide participation across cities and campuses</li>
-                <li>• 18–24 age group — highly engaged, highly influential</li>
-                <li>• Weekly engagement across multiple episodes</li>
-              </ul>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                {[
+                  { stat: "1,00,000+", label: "Players entering the arena" },
+                  { stat: "Nationwide", label: "Participation across cities and campuses" },
+                  { stat: "18–24", label: "Age group — highly engaged, highly influential" },
+                  { stat: "Weekly", label: "Engagement across multiple episodes" },
+                ].map((item) => (
+                  <div key={item.stat} className="bg-black/60 border border-primary/30 rounded-xl p-4 md:p-5 text-center flex flex-col items-center gap-2">
+                    <p className="text-primary text-[20px] md:text-[24px] font-display font-black leading-none">{item.stat}</p>
+                    <p className="text-white/60 text-[11px] md:text-[12px] leading-snug">{item.label}</p>
+                  </div>
+                ))}
+              </div>
               <p className="text-white text-[15px] md:text-[17px] font-semibold leading-relaxed">
                 This is not passive viewership sitting behind screens. This is active participation where the audience lives inside the experience.
               </p>
@@ -177,35 +208,6 @@ export default function Sponsorship() {
               <p className="text-white text-[15px] md:text-[17px] font-semibold leading-relaxed">
                 Your brand is not seen once. It becomes part of the journey people remember.
               </p>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ── ARENA VIDEO ─────────────────────────────────────────────────── */}
-        <section className="py-12 md:py-16 px-5 sm:px-8 bg-black">
-          <div className="max-w-6xl mx-auto">
-            <motion.div {...fadeUpProps(0.05)} className="premium-card prize-card-animated rounded-2xl overflow-hidden relative w-full" style={{ aspectRatio: "16/9" }}>
-              <video
-                ref={sponsorVideoRef}
-                className="absolute inset-0 w-full h-full object-cover object-center"
-                src="https://res.cloudinary.com/dymamigxu/video/upload/v1773860438/s56_b5vq99.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-              <button
-                type="button"
-                onClick={toggleSponsorAudio}
-                className="absolute bottom-4 right-4 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 border border-white/20 text-white/80 hover:text-white hover:border-white/40 transition-all duration-200 text-[11px] font-display tracking-[0.12em]"
-                aria-label={sponsorVideoMuted ? "Unmute video" : "Mute video"}
-              >
-                {sponsorVideoMuted
-                  ? <><VolumeX className="w-3.5 h-3.5" /> UNMUTE</>
-                  : <><Volume2 className="w-3.5 h-3.5" /> MUTE</>}
-              </button>
             </motion.div>
           </div>
         </section>
@@ -260,9 +262,9 @@ export default function Sponsorship() {
                 Sponsors become part of this system by:
               </p>
               <ul className="text-white/70 text-[14px] md:text-[16px] leading-relaxed space-y-2 mb-4">
-                <li>• contributing to the reward ecosystem</li>
-                <li>• adding value to the Final Vault</li>
-                <li>• increasing what is at stake</li>
+                <li>• Contributing to the reward ecosystem</li>
+                <li>• Adding value to the Final Vault</li>
+                <li>• Increasing what is at stake</li>
               </ul>
               <p className="text-white text-[15px] md:text-[17px] font-semibold leading-relaxed">
                 As the arena expands, your brand grows with it.
@@ -379,11 +381,11 @@ export default function Sponsorship() {
                 Your brand benefits from:
               </p>
               <ul className="text-white/70 text-[14px] md:text-[16px] leading-relaxed space-y-2 mb-4">
-                <li>• high visibility across multiple episodes</li>
-                <li>• presence in both digital and physical arenas</li>
-                <li>• deep content integration</li>
-                <li>• direct engagement with youth audience</li>
-                <li>• long-term brand recall</li>
+                <li>• High visibility across multiple episodes</li>
+                <li>• Presence in both digital and physical arenas</li>
+                <li>• Deep content integration</li>
+                <li>• Direct engagement with youth audience</li>
+                <li>• Long-term brand recall</li>
               </ul>
               <p className="text-white text-[15px] md:text-[17px] font-semibold leading-relaxed">
                 This is not advertising. This is participation in culture.
