@@ -249,37 +249,6 @@ export default function Faq() {
       ],
     },
     {
-      title: "PAYMENTS & ENTRY",
-      questions: [
-        {
-          q: "Do I need to pay to apply?",
-          a: "No. Applying to enter the Player System is completely free.",
-        },
-        {
-          q: "Is there any entry fee later?",
-          a: [
-            "Yes.",
-            "To activate your Player Identity and officially enter the arena, a Battle Entry fee will be applicable (details shared later).",
-          ],
-        },
-        {
-          q: "Why is there an entry fee?",
-          a: [
-            "The fee represents your commitment to step into the arena.",
-            "It activates your access to:",
-            "• Battle Intel • Arena participation • Player Identity",
-          ],
-        },
-        {
-          q: "When will I need to pay?",
-          a: [
-            "Payment is not required during application.",
-            "It is introduced later after you receive updates and understand the arena better.",
-          ],
-        },
-      ],
-    },
-    {
       title: "TRUST & LEGAL",
       questions: [
         {

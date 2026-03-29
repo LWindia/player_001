@@ -372,13 +372,10 @@ export default function Terms() {
           </div>
         </section>
 
-        {/* ── FINAL LINE ──────────────────────────────────────────────────── */}
+        {/* ── FINAL CTA ──────────────────────────────────────────────────── */}
         <section className="py-5 md:py-8 px-5 sm:px-8 bg-black/60 border-y border-white/[0.05]">
           <div className="max-w-6xl mx-auto">
             <motion.div {...fadeUpProps()} className="text-center mb-10">
-              <h2 className="text-[clamp(1.5rem,5vw,3rem)] font-display font-black text-white uppercase mb-6">
-                FINAL LINE
-              </h2>
               <p className="text-white/70 text-[15px] md:text-[17px] leading-relaxed max-w-4xl mx-auto mb-4">
                 The arena is not built on mystery.
               </p>
@@ -387,17 +384,18 @@ export default function Terms() {
               </p>
             </motion.div>
 
-            <motion.div {...fadeUpProps(0.15)} className="text-center">
-              <button
-                type="button"
-                onClick={() => window.location.href = '/application'}
+            <motion.div {...fadeUpProps(0.15)} className="text-center flex flex-col items-center gap-3">
+              <a
+                href="https://rzp.io/rzp/player001-could-be-you"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group relative inline-flex items-center justify-center gap-3 px-12 py-5 font-display font-bold tracking-[0.2em] text-[12px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
               >
                 <span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-350 ease-out" />
-                <span className="relative z-10">PROCEED WITH CONFIDENCE</span>
-              </button>
-              <p className="text-white/60 text-[13px] md:text-[14px] mt-4">
-                Unlock Your Game Guide Now
+                <span className="relative z-10">👉 BECOME A PLAYER NOW</span>
+              </a>
+              <p className="text-white/60 text-[13px] md:text-[14px]">
+                Game Arena Entry Fee : ₹456
               </p>
             </motion.div>
           </div>
