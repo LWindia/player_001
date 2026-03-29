@@ -71,6 +71,12 @@ export default defineConfig({
         rewrite: (_path) => `/macros/s/AKfycbw4_J-YCrDARDl7I2GjpszD6JgKMHYxgtpfVZmc4_KWduQVo2CQJMOFZO0DJLpA7LAZ/exec?key=p001_sponsor_x7k2nw4p`,
         followRedirects: true,
       },
+      "/api/careers": {
+        target: "https://script.google.com",
+        changeOrigin: true,
+        rewrite: (_path) => `/macros/s/AKfycbxGWiBIeJoMD-IPuvc7YqMsqBq8bKEgtjLVp396Sl_BTIvYPsgk5UUrhMZqE3ijSt_kPw/exec?key=p001_careers_z5m8kx3q`,
+        followRedirects: true,
+      },
     },
   },
   preview: {

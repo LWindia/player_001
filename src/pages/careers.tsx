@@ -1,4 +1,5 @@
 import type React from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -20,6 +21,71 @@ function fadeUpProps(delay = 0) {
 }
 
 export default function Careers() {
+  const ROLES = [
+    "Production Team (Live + Digital Content)",
+    "Performance Marketer",
+    "College Champions (Campus Ambassadors)",
+    "Outreach & Sponsorship Team",
+    "Government Liaison & Partnerships",
+    "Marketing Head",
+    "Community Manager",
+    "Content Strategist",
+  ];
+
+  const [form, setForm] = useState({
+    name: "", whatsapp: "", email: "", city: "",
+    role: "", hasExperience: "", prevCompany: "",
+  });
+  const [resumeFile, setResumeFile] = useState<File | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
+    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+
+  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (file && file.type === "application/pdf") {
+      setResumeFile(file);
+    } else {
+      setSubmitError("Please upload a PDF file only.");
+      setResumeFile(null);
+    }
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!resumeFile) { setSubmitError("Please upload your resume (PDF)."); return; }
+    setIsSubmitting(true);
+    setSubmitError("");
+    try {
+      // Convert PDF to base64
+      const base64 = await new Promise<string>((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve((reader.result as string).split(",")[1]);
+        reader.onerror = reject;
+        reader.readAsDataURL(resumeFile);
+      });
+      const res = await fetch("/api/careers", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, resumeBase64: base64, resumeName: resumeFile.name }),
+      });
+      const json = await res.json();
+      if (json.status === "success") {
+        setSubmitted(true);
+      } else {
+        setSubmitError("Something went wrong. Please try again.");
+      }
+    } catch {
+      setSubmitError("Network error. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
   return (
     <div className="bg-background min-h-screen text-foreground overflow-x-hidden">
       <Navbar />
@@ -549,6 +615,105 @@ export default function Careers() {
               <p className="text-white text-[15px] md:text-[17px] font-semibold leading-relaxed">
                 This is the kind of experience that defines your career trajectory.
               </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ── APPLICATION FORM ─────────────────────────────────────────────── */}
+        <section className="py-12 md:py-16 px-5 sm:px-8 bg-black" id="apply-form">
+          <div className="max-w-4xl mx-auto">
+            <motion.div {...fadeUpProps()} className="text-center mb-10">
+              <h2 className="text-[clamp(1.5rem,5vw,3rem)] font-display font-black text-white uppercase mb-4">
+                Apply Now
+              </h2>
+              <p className="text-white/70 text-[14px] md:text-[16px] leading-relaxed">
+                Fill in your details and upload your resume. We'll be in touch.
+              </p>
+            </motion.div>
+
+            <motion.div {...fadeUpProps(0.1)} className="premium-card prize-card-animated rounded-xl p-6 md:p-10">
+              {submitted ? (
+                <div className="text-center py-12">
+                  <p className="text-primary text-[28px] font-display font-black mb-3">✓ Application Received</p>
+                  <p className="text-white/70 text-[15px]">We'll review your application and reach out soon.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  {/* Name */}
+                  <div>
+                    <label className="block text-white/70 text-[12px] font-display tracking-[0.15em] uppercase mb-2">Name <span className="text-primary">*</span></label>
+                    <input name="name" type="text" required placeholder="Your full name" value={form.name} onChange={handleChange}
+                      className="w-full px-6 py-4 bg-black/40 border border-white/20 rounded-lg text-white placeholder:text-white/50 focus:outline-none focus:border-primary/60 focus:bg-black/60 transition-all font-display text-[15px] tracking-wide" />
+                  </div>
+                  {/* WhatsApp + Email */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-white/70 text-[12px] font-display tracking-[0.15em] uppercase mb-2">WhatsApp No <span className="text-primary">*</span></label>
+                      <input name="whatsapp" type="tel" required placeholder="+91 XXXXX XXXXX" value={form.whatsapp} onChange={handleChange}
+                        className="w-full px-6 py-4 bg-black/40 border border-white/20 rounded-lg text-white placeholder:text-white/50 focus:outline-none focus:border-primary/60 focus:bg-black/60 transition-all font-display text-[15px] tracking-wide" />
+                    </div>
+                    <div>
+                      <label className="block text-white/70 text-[12px] font-display tracking-[0.15em] uppercase mb-2">Email ID <span className="text-primary">*</span></label>
+                      <input name="email" type="email" required placeholder="your@email.com" value={form.email} onChange={handleChange}
+                        className="w-full px-6 py-4 bg-black/40 border border-white/20 rounded-lg text-white placeholder:text-white/50 focus:outline-none focus:border-primary/60 focus:bg-black/60 transition-all font-display text-[15px] tracking-wide" />
+                    </div>
+                  </div>
+                  {/* City */}
+                  <div>
+                    <label className="block text-white/70 text-[12px] font-display tracking-[0.15em] uppercase mb-2">Current City <span className="text-primary">*</span></label>
+                    <input name="city" type="text" required placeholder="Your city" value={form.city} onChange={handleChange}
+                      className="w-full px-6 py-4 bg-black/40 border border-white/20 rounded-lg text-white placeholder:text-white/50 focus:outline-none focus:border-primary/60 focus:bg-black/60 transition-all font-display text-[15px] tracking-wide" />
+                  </div>
+                  {/* Role */}
+                  <div>
+                    <label className="block text-white/70 text-[12px] font-display tracking-[0.15em] uppercase mb-2">Applying for which role? <span className="text-primary">*</span></label>
+                    <select name="role" required value={form.role} onChange={handleChange}
+                      className="w-full px-6 py-4 bg-black/40 border border-white/20 rounded-lg text-white focus:outline-none focus:border-primary/60 focus:bg-black/60 transition-all font-display text-[15px] tracking-wide">
+                      <option value="" className="bg-black">Select a role</option>
+                      {ROLES.map(r => <option key={r} value={r} className="bg-black">{r}</option>)}
+                    </select>
+                  </div>
+                  {/* Experience */}
+                  <div>
+                    <label className="block text-white/70 text-[12px] font-display tracking-[0.15em] uppercase mb-2">Do you have past experience? <span className="text-primary">*</span></label>
+                    <div className="flex gap-4">
+                      {["Yes", "No"].map(opt => (
+                        <label key={opt} className="flex items-center gap-2 cursor-pointer">
+                          <input type="radio" name="hasExperience" value={opt} checked={form.hasExperience === opt} onChange={handleChange}
+                            className="accent-primary w-4 h-4" />
+                          <span className="text-white font-display text-[14px]">{opt}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                  {/* Previous company — only if Yes */}
+                  {form.hasExperience === "Yes" && (
+                    <div>
+                      <label className="block text-white/70 text-[12px] font-display tracking-[0.15em] uppercase mb-2">Previous Company & Job Role</label>
+                      <input name="prevCompany" type="text" placeholder="e.g. Acme Corp — Marketing Executive" value={form.prevCompany} onChange={handleChange}
+                        className="w-full px-6 py-4 bg-black/40 border border-white/20 rounded-lg text-white placeholder:text-white/50 focus:outline-none focus:border-primary/60 focus:bg-black/60 transition-all font-display text-[15px] tracking-wide" />
+                    </div>
+                  )}
+                  {/* Resume Upload */}
+                  <div>
+                    <label className="block text-white/70 text-[12px] font-display tracking-[0.15em] uppercase mb-2">Upload Resume (PDF only) <span className="text-primary">*</span></label>
+                    <div
+                      className="w-full px-6 py-4 bg-black/40 border border-white/20 rounded-lg text-white/50 cursor-pointer hover:border-primary/60 transition-all font-display text-[14px] flex items-center gap-3"
+                      onClick={() => fileInputRef.current?.click()}
+                    >
+                      <span className="text-primary text-[18px]">📎</span>
+                      <span>{resumeFile ? resumeFile.name : "Click to upload PDF"}</span>
+                    </div>
+                    <input ref={fileInputRef} type="file" accept=".pdf" onChange={handleFileChange} className="hidden" />
+                  </div>
+                  {submitError && <p className="text-primary text-[13px]">{submitError}</p>}
+                  <button type="submit" disabled={isSubmitting}
+                    className="group relative w-full inline-flex items-center justify-center gap-3 px-10 py-5 font-display font-bold tracking-[0.2em] text-[12px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-80 disabled:cursor-not-allowed">
+                    <span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-350 ease-out" />
+                    <span className="relative z-10">{isSubmitting ? "SUBMITTING…" : "SUBMIT APPLICATION"}</span>
+                  </button>
+                </form>
+              )}
             </motion.div>
           </div>
         </section>
