@@ -268,7 +268,7 @@ export default function Home() {
                     <div className="laser-line w-5 shrink-0" />
                     <div>
                       <p className="text-[11.5px] tracking-[0.2em] text-white font-display mb-0.5">PLAYER 001 &bull; WINNER CASH PRIZE STARTS AT</p>
-                      <p className="text-primary text-[26px] sm:text-[32px] md:text-[40px] font-display font-black leading-none">1 Million +</p>
+                      <p className="text-primary text-[26px] sm:text-[32px] md:text-[40px] font-display font-black leading-none">₹ 1 Million +</p>
                     </div>
                   </div>
                 </motion.div>
