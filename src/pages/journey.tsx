@@ -98,11 +98,11 @@ export default function Journey() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <motion.div {...fadeUpProps(0.05)} className="premium-card rounded-xl p-8">
                 <p className="text-[11px] tracking-[0.28em] text-primary/70 font-display mb-3">GAME BEGINS</p>
-                <p className="text-white text-[26px] font-display font-bold">1st July 2026</p>
+                <p className="text-white text-[26px] font-display font-bold">1st Aug 2026</p>
               </motion.div>
               <motion.div {...fadeUpProps(0.1)} className="premium-card rounded-xl p-8">
                 <p className="text-[11px] tracking-[0.28em] text-primary/70 font-display mb-3">VAULT OPENS</p>
-                <p className="text-white text-[26px] font-display font-bold">30th August 2026</p>
+                <p className="text-white text-[26px] font-display font-bold">27th Sept 2026</p>
               </motion.div>
             </div>
             <motion.div {...fadeUpProps(0.15)} className="premium-card rounded-xl p-8 mt-4 text-white/65">

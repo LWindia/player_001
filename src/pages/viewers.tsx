@@ -144,11 +144,11 @@ export default function Viewers() {
             <motion.div {...fadeUpProps()} className="text-center mb-8">
               <SectionHeader
                 eyebrow="THE ARENA TIMELINE"
-                title="The game begins on 1st July 2026"
+                title="The game begins on 1st Aug 2026"
                 centered
                 titleSize="text-[clamp(1.5rem,5.625vw,3.75rem)]"
                 mobileTitleSize="text-[clamp(1.575rem,5.906vw,3.9375rem)]"
-                mobileBreaks={["THE GAME BEGINS ON", "1ST JULY 2026"]}
+                mobileBreaks={["THE GAME BEGINS ON", "1st Aug 2026"]}
               />
             </motion.div>
 
@@ -273,7 +273,7 @@ export default function Viewers() {
 
                 <div className="mb-6">
                   <p className="text-white text-[13px] md:text-[14px] font-display mb-2">When</p>
-                  <p className="text-white/60 text-[13px] md:text-[14px]">Every Sunday (starting 1st July 2026)</p>
+                  <p className="text-white/60 text-[13px] md:text-[14px]">Every Sunday (starting 1st Aug 2026)</p>
                 </div>
 
                 <div className="mb-6">

@@ -890,8 +890,8 @@ export default function Home() {
             <motion.div {...fadeUpProps(0.27)} className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               <div className="premium-card prize-card-animated rounded-xl p-6 md:p-8">
                 <h4 className="text-white text-[16px] md:text-[18px] font-display font-bold mb-4">ARENA TIMELINE</h4>
-                <p className="text-white/70 text-[14px] md:text-[15px] mb-2">Game Begins: <span className="text-primary font-semibold">1st July 2026</span></p>
-                <p className="text-white/70 text-[14px] md:text-[15px]">Vault Opens On : <span className="text-primary font-semibold">30th August 2026</span></p>
+                <p className="text-white/70 text-[14px] md:text-[15px] mb-2">Game Begins: <span className="text-primary font-semibold">1st Aug 2026</span></p>
+                <p className="text-white/70 text-[14px] md:text-[15px]">Vault Opens On : <span className="text-primary font-semibold">27th Sept 2026</span></p>
               </div>
               <div className="premium-card prize-card-animated rounded-xl p-6 md:p-8">
                 <h4 className="text-white text-[16px] md:text-[18px] font-display font-bold mb-4">ARENA DAY</h4>
@@ -913,7 +913,7 @@ export default function Home() {
 
             <motion.div {...fadeUpProps(0.29)} className="text-center">
               <p className="text-[clamp(1.2rem,3vw,2.1rem)] font-display font-black text-white uppercase leading-tight mb-8">
-                Every Sunday the arena eliminates thousands. Until only one Player remains.
+                Every Sunday the arena eliminates thousands. Until <span className="text-primary">only one</span> Player remains.
               </p>
               <div className="flex flex-col items-center justify-center gap-3">
                 <a href="https://rzp.io/rzp/player001-could-be-you" target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 font-display font-bold tracking-[0.2em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer">
@@ -1134,12 +1134,12 @@ export default function Home() {
 
             <motion.div {...fadeUpProps(0.13)} className="mb-10">
               <h3 className="text-white text-[20px] md:text-[24px] font-display font-bold mb-6 text-center">
-                WHAT YOU GET AS A PLAYER ?
+                WHAT YOU GET<br />AS A PLAYER ?
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
                 {[
                   {
-                    title: "₹1M+ Prize Money",
+                    title: "₹1M+ Cash Prize Money",
                     desc: "Starting from ₹1 Million, the prize pool keeps growing with every player who joins in..",
                   },
                   {
@@ -1205,12 +1205,12 @@ export default function Home() {
 
             <motion.div {...fadeUpProps(0.38)} className="text-center">
               <div className="flex flex-col items-center justify-center gap-3">
-                <a href="https://rzp.io/rzp/player001-could-be-you" target="_blank" rel="noopener noreferrer" className="group relative inline-flex flex-col items-center justify-center w-full sm:w-auto px-10 py-5 font-display text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer">
+                <a href="https://rzp.io/rzp/player001-could-be-you" target="_blank" rel="noopener noreferrer" className="group relative inline-flex items-center justify-center w-full sm:w-auto px-10 py-5 font-display text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer">
                     <span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-350 ease-out" />
-                    <span className="relative z-10 text-[13px] font-black tracking-[0.2em] uppercase mb-2">👉 BECOME A PLAYER NOW</span>
-                    <span className="relative z-10 text-[11px] font-normal tracking-[0.1em] text-white/85 text-center">Game Arena Entry Fee : ₹456</span>
-                    <span className="relative z-10 text-[11px] font-normal tracking-[0.1em] text-white/85 text-center">Be there</span>
+                    <span className="relative z-10 text-[13px] font-black tracking-[0.2em] uppercase">👉 BECOME A PLAYER NOW</span>
                   </a>
+                <p className="text-white/70 text-[13px] text-center">Game Arena Entry Fee : ₹456</p>
+                <p className="text-white/70 text-[13px] text-center">Be there</p>
               </div>
             </motion.div>
           </div>

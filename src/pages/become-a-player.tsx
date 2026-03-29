@@ -226,8 +226,8 @@ export default function BecomeAPlayer() {
             <motion.div {...fadeUpProps(0.25)} className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               <div className="premium-card prize-card-animated rounded-xl p-6 md:p-8">
                 <h4 className="text-white text-[16px] md:text-[18px] font-display font-bold mb-4">ARENA TIMELINE</h4>
-                <p className="text-white/70 text-[14px] md:text-[15px] mb-2">Game Begins: <span className="text-primary font-semibold">1st July 2026</span></p>
-                <p className="text-white/70 text-[14px] md:text-[15px]">Vault Opens On : <span className="text-primary font-semibold">30th August 2026</span></p>
+                <p className="text-white/70 text-[14px] md:text-[15px] mb-2">Game Begins: <span className="text-primary font-semibold">1st Aug 2026</span></p>
+                <p className="text-white/70 text-[14px] md:text-[15px]">Vault Opens On : <span className="text-primary font-semibold">27th Sept 2026</span></p>
               </div>
               <div className="premium-card prize-card-animated rounded-xl p-6 md:p-8">
                 <h4 className="text-white text-[16px] md:text-[18px] font-display font-bold mb-4">ARENA DAY</h4>

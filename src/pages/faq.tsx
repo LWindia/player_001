@@ -98,7 +98,7 @@ export default function Faq() {
           q: "How many episodes are there and when do they happen?",
           a: [
             "There are 7 total episodes.",
-            "Episodes 1–5 happen online + live every Sunday starting July 2026.",
+            "Episodes 1–5 happen online + live every Sunday starting Aug 2026.",
             "Episodes 6–7 are physical arena battles held at a grand location (to be announced).",
             "The final episode determines the champion.",
           ],
