@@ -119,6 +119,17 @@ export default function Viewers() {
                 How close you want to be to the game.
               </p>
             </motion.div>
+
+            <motion.div {...fadeUpProps(0.35)} className="text-center mt-8">
+              <button
+                type="button"
+                onClick={scrollToExperience}
+                className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-12 py-5 font-display font-bold tracking-[0.2em] text-[12px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
+              >
+                <span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-350 ease-out" />
+                <span className="relative z-10">SELECT YOUR EXPERIENCE</span>
+              </button>
+            </motion.div>
           </div>
         </section>
 

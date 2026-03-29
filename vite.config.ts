@@ -65,6 +65,12 @@ export default defineConfig({
         rewrite: (_path) => `/macros/s/AKfycbwGSfkaGZ5pktJE6WQlxGQQvOyFyi_KziCQFV6saj7Wt6Wgb1SyCOytTGS30m2UZKmw/exec?key=p001_prize_m8y3nz5w`,
         followRedirects: true,
       },
+      "/api/sponsorship": {
+        target: "https://script.google.com",
+        changeOrigin: true,
+        rewrite: (_path) => `/macros/s/AKfycbw4_J-YCrDARDl7I2GjpszD6JgKMHYxgtpfVZmc4_KWduQVo2CQJMOFZO0DJLpA7LAZ/exec?key=p001_sponsor_x7k2nw4p`,
+        followRedirects: true,
+      },
     },
   },
   preview: {
