@@ -1,6 +1,7 @@
 import type React from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
+import { Volume2, VolumeX } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 
@@ -28,6 +29,15 @@ export default function Sponsorship() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  const sponsorVideoRef = useRef<HTMLVideoElement>(null);
+  const [sponsorVideoMuted, setSponsorVideoMuted] = useState(true);
+
+  function toggleSponsorAudio() {
+    const vid = sponsorVideoRef.current;
+    if (!vid) return;
+    vid.muted = !vid.muted;
+    setSponsorVideoMuted(vid.muted);
+  }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -167,6 +177,35 @@ export default function Sponsorship() {
               <p className="text-white text-[15px] md:text-[17px] font-semibold leading-relaxed">
                 Your brand is not seen once. It becomes part of the journey people remember.
               </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ── ARENA VIDEO ─────────────────────────────────────────────────── */}
+        <section className="py-12 md:py-16 px-5 sm:px-8 bg-black">
+          <div className="max-w-6xl mx-auto">
+            <motion.div {...fadeUpProps(0.05)} className="premium-card prize-card-animated rounded-2xl overflow-hidden relative w-full" style={{ aspectRatio: "16/9" }}>
+              <video
+                ref={sponsorVideoRef}
+                className="absolute inset-0 w-full h-full object-cover object-center"
+                src="https://res.cloudinary.com/dymamigxu/video/upload/v1773860438/s56_b5vq99.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              <button
+                type="button"
+                onClick={toggleSponsorAudio}
+                className="absolute bottom-4 right-4 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 border border-white/20 text-white/80 hover:text-white hover:border-white/40 transition-all duration-200 text-[11px] font-display tracking-[0.12em]"
+                aria-label={sponsorVideoMuted ? "Unmute video" : "Mute video"}
+              >
+                {sponsorVideoMuted
+                  ? <><VolumeX className="w-3.5 h-3.5" /> UNMUTE</>
+                  : <><Volume2 className="w-3.5 h-3.5" /> MUTE</>}
+              </button>
             </motion.div>
           </div>
         </section>
