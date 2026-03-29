@@ -37,6 +37,7 @@ export default function Enquire() {
     name: "", whatsapp: "", email: "", age: "", city: "", reason: "", query: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function toggleHeroAudio() {
     const vid = heroVideoRef.current;
@@ -50,6 +51,7 @@ export default function Enquire() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    setIsSubmitting(true);
     try {
       await fetch(SCRIPT_URL, {
         method: "POST",
@@ -59,7 +61,9 @@ export default function Enquire() {
       });
       setSubmitted(true);
     } catch {
-      setSubmitted(true); // Still show success — no-cors won't return errors
+      setSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
@@ -271,10 +275,21 @@ export default function Enquire() {
 
                 <button
                   type="submit"
-                  className="group relative w-full inline-flex items-center justify-center gap-3 px-10 py-4 font-display font-bold tracking-[0.2em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                  disabled={isSubmitting}
+                  className="group relative w-full inline-flex items-center justify-center gap-3 px-10 py-4 font-display font-bold tracking-[0.2em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-80 disabled:cursor-not-allowed disabled:scale-100"
                 >
                   <span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-350 ease-out" />
-                  <span className="relative z-10">SEND YOUR QUERY</span>
+                  {isSubmitting ? (
+                    <span className="relative z-10 flex items-center gap-2">
+                      <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                      </svg>
+                      SUBMITTING...
+                    </span>
+                  ) : (
+                    <span className="relative z-10">SEND YOUR QUERY</span>
+                  )}
                 </button>
 
                 <p className="text-white/40 text-[12px] text-center italic">Our team typically responds within 24 hours.</p>

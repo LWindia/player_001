@@ -25,6 +25,7 @@ function fadeUpProps(delay = 0) {
 export default function Invite() {
   const [, setLocation] = useLocation();
   const [referralName, setReferralName] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     whatsapp: "",
@@ -43,8 +44,8 @@ export default function Invite() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: Add form submission logic with referral tracking
-    setLocation("/thank-you");
+    setIsSubmitting(true);
+    setTimeout(() => setLocation("/thank-you"), 800);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -224,10 +225,21 @@ export default function Invite() {
 
                 <button
                   type="submit"
-                  className="group relative w-full inline-flex items-center justify-center gap-3 px-10 py-5 font-display font-bold tracking-[0.2em] text-[12px] text-black bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] mt-8"
+                  disabled={isSubmitting}
+                  className="group relative w-full inline-flex items-center justify-center gap-3 px-10 py-5 font-display font-bold tracking-[0.2em] text-[12px] text-black bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] mt-8 disabled:opacity-80 disabled:cursor-not-allowed disabled:scale-100"
                 >
                   <span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-350 ease-out" />
-                  <span className="relative z-10">👉 ENTER THE ARENA</span>
+                  {isSubmitting ? (
+                    <span className="relative z-10 flex items-center gap-2">
+                      <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                      </svg>
+                      SUBMITTING...
+                    </span>
+                  ) : (
+                    <span className="relative z-10">👉 ENTER THE ARENA</span>
+                  )}
                 </button>
               </form>
             </motion.div>
