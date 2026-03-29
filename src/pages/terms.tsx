@@ -142,7 +142,7 @@ export default function Terms() {
                   The Champion Prize begins at:
                 </p>
                 <p className="text-primary text-[28px] md:text-[32px] font-display font-black mb-6 text-center">
-                  ₹10,00,000+
+                  ₹ 1 Million +
                 </p>
                 <p className="text-white/70 text-[14px] md:text-[16px] leading-relaxed mb-4">
                   The vault grows through multiple sources.
