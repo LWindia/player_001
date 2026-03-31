@@ -5,19 +5,15 @@
 // Sheet: "Registrations" (or whatever your existing sheet is named)
 // This script handles form submission AND sends auto-email to the user
 
+const REGISTER_SHEET_ID = "188y-oeqtQlLQlKDruOKO1Glh2iBfP7l96Ht4cgPQYxE";
 const SECRET_TOKEN = "player001_secret_2026";
 
 function doPost(e) {
   try {
     const data = JSON.parse(e.postData.contents);
 
-    // Validate token
-    if (!data.token || data.token !== SECRET_TOKEN) {
-      return buildResponse({ status: "error", message: "Unauthorized" });
-    }
-
-    // Save to sheet
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    // Save to sheet (no token check — register form sends directly)
+    const sheet = SpreadsheetApp.openById(REGISTER_SHEET_ID).getActiveSheet();
     sheet.appendRow([
       new Date().toISOString(),
       data.name || "",
