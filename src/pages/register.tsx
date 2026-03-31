@@ -24,7 +24,7 @@ function fadeUpProps(delay = 0) {
 
 export default function Register() {
   const [, setLocation] = useLocation();
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbygwgYxD1tJVvp2l2esil6OXRByMGNhWvj9N8852pn6OPQl1yKdtXodb_lFcfvBG-2C5Q/exec";
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby07uU4azOHR6gSIdO7oolFkvHjq2iL-s5nWw2i2H4atNtnJUQ8JRSrQLuGvVNUHhH1/exec";
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [formData, setFormData] = useState({
