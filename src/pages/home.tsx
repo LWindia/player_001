@@ -1139,7 +1139,7 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
                 {[
                   {
-                    title: "₹1M+ Cash Prize Money",
+                    title: "₹ 1 Million + Cash Prize Money",
                     desc: "Starting from ₹1 Million, the prize pool keeps growing with every player who joins in..",
                   },
                   {

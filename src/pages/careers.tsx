@@ -42,6 +42,11 @@ export default function Careers() {
   const [submitError, setSubmitError] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  function scrollToForm(role: string) {
+    setForm(prev => ({ ...prev, role }));
+    document.getElementById("apply-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
   }
@@ -94,6 +99,7 @@ export default function Careers() {
       setIsSubmitting(false);
     }
   }
+
   return (
     <div className="bg-background min-h-screen text-foreground overflow-x-hidden">
       <Navbar />
@@ -296,6 +302,7 @@ export default function Careers() {
                     <li>• Ability to execute under time pressure</li>
                     <li>• Hands-on with cameras, direction, and on-ground execution</li>
                   </ul>
+                  <button type="button" onClick={() => scrollToForm("Production Team (Live + Digital Content)")} className="mt-5 group relative inline-flex items-center justify-center gap-2 px-6 py-3 font-display font-bold tracking-[0.18em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"><span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" /><span className="relative z-10">APPLY NOW →</span></button>
                 </div>
               </div>
             </motion.div>
@@ -337,6 +344,7 @@ export default function Careers() {
                     <li>• Ability to scale campaigns with measurable ROI</li>
                     <li>• Data-driven decision-making mindset</li>
                   </ul>
+                  <button type="button" onClick={() => scrollToForm("Performance Marketer")} className="mt-5 group relative inline-flex items-center justify-center gap-2 px-6 py-3 font-display font-bold tracking-[0.18em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"><span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" /><span className="relative z-10">APPLY NOW →</span></button>
                 </div>
               </div>
             </motion.div>
@@ -377,6 +385,7 @@ export default function Careers() {
                     <li>• National-level exposure</li>
                     <li>• Direct association with a large-scale platform</li>
                   </ul>
+                  <button type="button" onClick={() => scrollToForm("College Champions (Campus Ambassadors)")} className="mt-5 group relative inline-flex items-center justify-center gap-2 px-6 py-3 font-display font-bold tracking-[0.18em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"><span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" /><span className="relative z-10">APPLY NOW →</span></button>
                 </div>
               </div>
             </motion.div>
@@ -416,6 +425,7 @@ export default function Careers() {
                     <li>• Experience in business development or partnerships</li>
                     <li>• Ability to build long-term professional relationships</li>
                   </ul>
+                  <button type="button" onClick={() => scrollToForm("Outreach & Sponsorship Team")} className="mt-5 group relative inline-flex items-center justify-center gap-2 px-6 py-3 font-display font-bold tracking-[0.18em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"><span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" /><span className="relative z-10">APPLY NOW →</span></button>
                 </div>
               </div>
             </motion.div>
@@ -455,6 +465,7 @@ export default function Careers() {
                     <li>• Understanding of public systems and policies</li>
                     <li>• Ability to navigate structured environments</li>
                   </ul>
+                  <button type="button" onClick={() => scrollToForm("Government Liaison & Partnerships")} className="mt-5 group relative inline-flex items-center justify-center gap-2 px-6 py-3 font-display font-bold tracking-[0.18em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"><span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" /><span className="relative z-10">APPLY NOW →</span></button>
                 </div>
               </div>
             </motion.div>
@@ -495,6 +506,7 @@ export default function Careers() {
                     <li>• Experience scaling products or platforms</li>
                     <li>• Strategic thinking with execution capability</li>
                   </ul>
+                  <button type="button" onClick={() => scrollToForm("Marketing Head")} className="mt-5 group relative inline-flex items-center justify-center gap-2 px-6 py-3 font-display font-bold tracking-[0.18em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"><span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" /><span className="relative z-10">APPLY NOW →</span></button>
                 </div>
               </div>
             </motion.div>
@@ -534,6 +546,7 @@ export default function Careers() {
                     <li>• Experience in community building or engagement</li>
                     <li>• Ability to manage large groups and interactions</li>
                   </ul>
+                  <button type="button" onClick={() => scrollToForm("Community Manager")} className="mt-5 group relative inline-flex items-center justify-center gap-2 px-6 py-3 font-display font-bold tracking-[0.18em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"><span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" /><span className="relative z-10">APPLY NOW →</span></button>
                 </div>
               </div>
             </motion.div>
@@ -573,6 +586,7 @@ export default function Careers() {
                     <li>• Experience in content strategy / brand communication</li>
                     <li>• Understanding of audience psychology</li>
                   </ul>
+                  <button type="button" onClick={() => scrollToForm("Content Strategist")} className="mt-5 group relative inline-flex items-center justify-center gap-2 px-6 py-3 font-display font-bold tracking-[0.18em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"><span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" /><span className="relative z-10">APPLY NOW →</span></button>
                 </div>
               </div>
             </motion.div>
