@@ -19,14 +19,27 @@ function fadeUpProps(delay = 0) {
 }
 
 const legacyImgs = [
-  "https://res.cloudinary.com/dymamigxu/image/upload/v1773860374/s26_glyxjc.jpg",
-  "https://res.cloudinary.com/dymamigxu/image/upload/v1773860370/s70_dmemo3.jpg",
-  "https://res.cloudinary.com/dymamigxu/image/upload/v1773860358/s65_z1asit.jpg",
-  "https://res.cloudinary.com/dymamigxu/image/upload/v1773860356/s64_ntfvra.jpg",
-  "https://res.cloudinary.com/dymamigxu/image/upload/v1773860305/s11_oxkxtw.png",
-  "https://res.cloudinary.com/dymamigxu/image/upload/v1773860306/s21_jgs0yt.jpg",
-  "https://res.cloudinary.com/dymamigxu/image/upload/v1773860420/s41_k0egsf.jpg",
-  "https://res.cloudinary.com/dymamigxu/image/upload/v1773860364/s67_zazo3l.gif",
+  "https://res.cloudinary.com/dymamigxu/image/upload/v1774954931/DSC_1753_gvgxh9.jpg",
+  "https://res.cloudinary.com/dymamigxu/image/upload/v1774954930/DSC_2352_qbrweh.jpg",
+  "https://res.cloudinary.com/dymamigxu/image/upload/v1774954930/DSC_2211_ey5mp8.jpg",
+  "https://res.cloudinary.com/dymamigxu/image/upload/v1774954930/DSC_2173_w7oiu6.jpg",
+  "https://res.cloudinary.com/dymamigxu/image/upload/v1774954929/DSC_2390_ng3wvh.jpg",
+  "https://res.cloudinary.com/dymamigxu/image/upload/v1774954927/DSC_2353_yz965c.jpg",
+  "https://res.cloudinary.com/dymamigxu/image/upload/v1774954926/DSC_1106_mcfc3j.jpg",
+  "https://res.cloudinary.com/dymamigxu/image/upload/v1774954925/DSC_2254_xzdrck.jpg",
+  "https://res.cloudinary.com/dymamigxu/image/upload/v1774954923/DSC_2028_lv5kmr.jpg",
+  "https://res.cloudinary.com/dymamigxu/image/upload/v1774954923/DSC_2158_ucd9ye.jpg",
+  "https://res.cloudinary.com/dymamigxu/image/upload/v1774954923/DSC_1897_td9wm6.jpg",
+  "https://res.cloudinary.com/dymamigxu/image/upload/v1774954921/DSC_0881_nj1l5e.jpg",
+  "https://res.cloudinary.com/dymamigxu/image/upload/v1774954920/DSC_1892_yiitqa.jpg",
+  "https://res.cloudinary.com/dymamigxu/image/upload/v1774954919/DSC_1100_wkonai.jpg",
+  "https://res.cloudinary.com/dymamigxu/image/upload/v1774954917/DSC_0818_tu9xqe.jpg",
+  "https://res.cloudinary.com/dymamigxu/image/upload/v1774954918/DSC_1097_y7nalc.jpg",
+  "https://res.cloudinary.com/dymamigxu/image/upload/v1774954914/DSC_1074_a7nkzs.jpg",
+  "https://res.cloudinary.com/dymamigxu/image/upload/v1774954914/DSC_0753_vbguum.jpg",
+  "https://res.cloudinary.com/dymamigxu/image/upload/v1774954913/DSC_0726_antbqv.jpg",
+  "https://res.cloudinary.com/dymamigxu/image/upload/v1774954913/DSC_0678_anvqry.jpg",
+  "https://res.cloudinary.com/dymamigxu/image/upload/v1774954912/DSC_0564_nndpvb.jpg",
 ];
 
 export default function Enquire() {
@@ -335,7 +348,26 @@ export default function Enquire() {
                 titleSize="text-[clamp(1.5rem,5vw,3.5rem)]"
               />
             </motion.div>
-            <motion.div {...fadeUpProps(0.05)} className="premium-card prize-card-animated rounded-xl p-6 md:p-8 max-w-3xl mx-auto">
+            <motion.div {...fadeUpProps(0.05)} className="flex justify-center mb-8">
+              <div className="relative p-[5px] max-w-md w-full">
+                <div
+                  className="absolute inset-0 rounded-sm animate-pulse"
+                  style={{
+                    border: "2.5px solid #ff2a2a",
+                    boxShadow: "0 0 20px rgba(255, 42, 42, 0.8), 0 0 40px rgba(255, 42, 42, 0.6), 0 0 60px rgba(255, 42, 42, 0.4)",
+                    animationDuration: "3s"
+                  }}
+                />
+                <img
+                  src="https://res.cloudinary.com/dymamigxu/image/upload/v1773860368/s5_ztdnlb.png"
+                  alt="The Architect"
+                  className="w-full h-auto object-contain relative z-10"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </motion.div>
+            <motion.div {...fadeUpProps(0.1)} className="premium-card prize-card-animated rounded-xl p-6 md:p-8 max-w-3xl mx-auto">
               <div className="space-y-4 text-white/70 text-[14px] md:text-[16px] leading-relaxed">
                 <p>Every system has a creator.</p>
                 <p>Someone who doesn't just build the game… but understands how people think inside it.</p>
