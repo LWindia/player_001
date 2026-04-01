@@ -1,6 +1,6 @@
 import type React from "react";
 import { useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { SectionHeader } from "@/components/landing/section-header";
@@ -18,8 +18,6 @@ function fadeUpProps(delay = 0) {
 
 export default function Ambassador() {
   const { scrollYProgress } = useScroll();
-  const heroY = useTransform(scrollYProgress, [0, 0.35], [0, 100]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0.65]);
 
   const [form, setForm] = useState({
     fullName: "", college: "", city: "", phone: "", email: "", why: "",
@@ -75,95 +73,84 @@ export default function Ambassador() {
               <span className="text-[9px] sm:text-[10px] tracking-[0.32em] text-primary/80 font-display font-semibold uppercase">BUILD THE ARENA FROM YOUR CAMPUS</span>
             </motion.div>
 
-            {/* Image Section in a Box */}
-            <div className="relative w-full h-[calc(35vh-10px)] md:h-[calc(70vh-10px)] rounded-2xl overflow-hidden mb-8 border-4 border-white/20">
-              {/* Background Image */}
-              <motion.div className="absolute inset-0 z-0" style={{ y: heroY, opacity: heroOpacity }}>
-                <img
-                  src="https://res.cloudinary.com/dymamigxu/image/upload/v1774698080/Hero_Desktop_Home_1_sfzf9n.jpg"
-                  alt=""
-                  className="w-full h-full object-cover object-center"
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
-                />
-              </motion.div>
-            </div>
+
 
           </div>
 
           {/* Black Background Section with Main Content */}
           <div className="relative bg-black pt-6 sm:pt-12 md:pt-16 pb-6 sm:pb-10 md:pb-12 overflow-hidden">
-            {/* Background Video */}
-            <div className="absolute inset-0 z-0">
-              <video
-                className="w-full h-full object-cover"
-                src="https://cdn.dribbble.com/userupload/46353399/file/5657af743257c466354ddac1b85c3386.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-              />
-              <div className="absolute inset-0 bg-black/80" />
-            </div>
             
             <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 relative z-10">
               
-              {/* Headline */}
-              <motion.div {...fadeUpProps(0.15)} className="mb-6 sm:mb-8">
-                <h1 id="hero-title" className="font-display font-black uppercase tracking-[-0.02em] text-white">
-                  {/* Mobile Layout */}
-                  <span className="block sm:hidden">
-                    <span className="block text-[5.8vw] leading-[1.08] whitespace-nowrap mb-2.5">
-                      BUILD THE ARENA
-                    </span>
-                    <span className="block text-[5.8vw] leading-[1.08] whitespace-nowrap mb-2.5">
-                      FROM YOUR CAMPUS
-                    </span>
-                  </span>
-                  {/* Desktop Layout */}
-                  <span className="hidden sm:block text-[clamp(2.5rem,6vw,5rem)] leading-[1.08]">
-                    BUILD THE ARENA FROM YOUR CAMPUS
-                  </span>
-                </h1>
-              </motion.div>
+              {/* Two column layout: content left, images right */}
+              <div className="flex flex-col md:flex-row md:items-center md:gap-12">
+                
+                {/* Left: Text content */}
+                <div className="flex-1">
+                  {/* Headline */}
+                  <motion.div {...fadeUpProps(0.15)} className="mb-6 sm:mb-8">
+                    <h1 id="hero-title" className="font-display font-black uppercase tracking-[-0.02em] text-white">
+                      <span className="block sm:hidden">
+                        <span className="block text-[5.8vw] leading-[1.08] whitespace-nowrap mb-2.5">BUILD THE ARENA</span>
+                        <span className="block text-[5.8vw] leading-[1.08] whitespace-nowrap mb-2.5">FROM YOUR CAMPUS</span>
+                      </span>
+                      <span className="hidden sm:block text-[clamp(2.5rem,6vw,5rem)] leading-[1.08]">
+                        BUILD THE ARENA FROM YOUR CAMPUS
+                      </span>
+                    </h1>
+                  </motion.div>
 
-              {/* Sub-copy */}
-              <motion.div {...fadeUpProps(0.2)} className="mb-6 sm:mb-8">
-                <p className="text-[15px] sm:text-[17px] md:text-[19px] text-white/80 font-medium leading-relaxed max-w-3xl">
-                  India's biggest survival reality game is being built.
-                </p>
-                <p className="text-[15px] sm:text-[17px] md:text-[19px] text-white/80 font-medium leading-relaxed max-w-3xl">
-                  And inside every college,
-                </p>
-                <p className="text-[15px] sm:text-[17px] md:text-[19px] text-white/80 font-medium leading-relaxed max-w-3xl">
-                  There will be a few people who don't just watch it grow…they build it.
-                </p>
-              </motion.div>
+                  {/* Sub-copy */}
+                  <motion.div {...fadeUpProps(0.2)} className="mb-6 sm:mb-8">
+                    <p className="text-[15px] sm:text-[17px] md:text-[19px] text-white/80 font-medium leading-relaxed max-w-3xl">
+                      India's biggest survival reality game is being built.
+                    </p>
+                    <p className="text-[15px] sm:text-[17px] md:text-[19px] text-white/80 font-medium leading-relaxed max-w-3xl">
+                      And inside every college,
+                    </p>
+                    <p className="text-[15px] sm:text-[17px] md:text-[19px] text-white/80 font-medium leading-relaxed max-w-3xl">
+                      There will be a few people who don't just watch it grow…they build it.
+                    </p>
+                  </motion.div>
 
-              <motion.div {...fadeUpProps(0.25)} className="mb-6 sm:mb-8">
-                <p className="text-[15px] sm:text-[17px] md:text-[19px] text-white font-semibold leading-relaxed max-w-3xl">
-                  You are not here to promote a game.
-                </p>
-                <p className="text-[15px] sm:text-[17px] md:text-[19px] text-white font-semibold leading-relaxed max-w-3xl">
-                  You are here to lead something
-                </p>
-                <p className="text-[15px] sm:text-[17px] md:text-[19px] text-white font-semibold leading-relaxed max-w-3xl">
-                  that people around you will remember.
-                </p>
-              </motion.div>
+                  <motion.div {...fadeUpProps(0.25)} className="mb-6 sm:mb-8">
+                    <p className="text-[15px] sm:text-[17px] md:text-[19px] text-white font-semibold leading-relaxed max-w-3xl">
+                      You are not here to promote a game.
+                    </p>
+                    <p className="text-[15px] sm:text-[17px] md:text-[19px] text-white font-semibold leading-relaxed max-w-3xl">
+                      You are here to lead something
+                    </p>
+                    <p className="text-[15px] sm:text-[17px] md:text-[19px] text-white font-semibold leading-relaxed max-w-3xl">
+                      that people around you will remember.
+                    </p>
+                  </motion.div>
 
-              {/* CTA */}
-              <motion.div {...fadeUpProps(0.3)} className="flex flex-col items-start gap-3 mb-8">
-                <a href="#application-form" className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 font-display font-bold tracking-[0.2em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer">
-                  <span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-350 ease-out" />
-                  <span className="relative z-10">BECOME A CAMPUS CHAMPION</span>
-                </a>
-                <p className="text-white/70 text-[13px] leading-relaxed">
-                  Start your journey from your campus
-                </p>
-              </motion.div>
+                  {/* CTA */}
+                  <motion.div {...fadeUpProps(0.3)} className="flex flex-col items-start gap-3 mb-8">
+                    <a href="#application-form" className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 font-display font-bold tracking-[0.2em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer">
+                      <span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-350 ease-out" />
+                      <span className="relative z-10">BECOME A CAMPUS CHAMPION</span>
+                    </a>
+                    <p className="text-white/70 text-[13px] leading-relaxed">
+                      Start your journey from your campus
+                    </p>
+                  </motion.div>
+                </div>
 
+                {/* Right: Single image card */}
+                <motion.div {...fadeUpProps(0.2)} className="hidden md:block w-[280px] shrink-0">
+                  <div className="rounded-xl overflow-hidden border border-white/10 shadow-lg">
+                    <img
+                      src="https://res.cloudinary.com/dgin6wumo/image/upload/v1775039035/Screenshot_20260401-155208_umbyjn.png"
+                      alt=""
+                      className="w-full h-auto object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </motion.div>
+
+              </div>
             </div>
           </div>
         </section>
