@@ -125,6 +125,17 @@ export default function Ambassador() {
                     </p>
                   </motion.div>
 
+                  {/* Mobile only image — above CTA */}
+                  <motion.div {...fadeUpProps(0.27)} className="block md:hidden mb-6">
+                    <img
+                      src="https://res.cloudinary.com/dymamigxu/image/upload/v1775049856/Badge-updateumbyjn-removebg-preview_duyqcq.png"
+                      alt=""
+                      className="w-full h-[280px] object-contain object-center"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </motion.div>
+
                   {/* CTA */}
                   <motion.div {...fadeUpProps(0.3)} className="flex flex-col items-start gap-3 mb-8">
                     <a href="#application-form" className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 font-display font-bold tracking-[0.2em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer">
@@ -137,22 +148,13 @@ export default function Ambassador() {
                   </motion.div>
                 </div>
 
-                {/* Right: Single image card */}
-                <motion.div {...fadeUpProps(0.2)} className="w-full md:w-[280px] shrink-0">
+                {/* Right: Single image card — desktop only */}
+                <motion.div {...fadeUpProps(0.2)} className="hidden md:block w-[280px] shrink-0">
                   <div className="rounded-xl overflow-hidden border border-white/10 shadow-lg">
-                    {/* Mobile image */}
-                    <img
-                      src="https://res.cloudinary.com/dymamigxu/image/upload/v1775049856/Badge-updateumbyjn-removebg-preview_duyqcq.png"
-                      alt=""
-                      className="block md:hidden w-full h-[200px] object-contain object-center"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    {/* Desktop image */}
                     <img
                       src="https://res.cloudinary.com/dgin6wumo/image/upload/v1775039035/Screenshot_20260401-155208_umbyjn.png"
                       alt=""
-                      className="hidden md:block w-full h-auto object-cover"
+                      className="w-full h-auto object-cover"
                       loading="lazy"
                       decoding="async"
                     />
