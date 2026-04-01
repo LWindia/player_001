@@ -77,6 +77,12 @@ export default defineConfig({
         rewrite: (_path) => `/macros/s/AKfycbxGWiBIeJoMD-IPuvc7YqMsqBq8bKEgtjLVp396Sl_BTIvYPsgk5UUrhMZqE3ijSt_kPw/exec?key=p001_careers_z5m8kx3q`,
         followRedirects: true,
       },
+      "/api/ambassador": {
+        target: "https://script.google.com",
+        changeOrigin: true,
+        rewrite: (_path) => `/macros/s/AKfycbyC7a0h4gXOGwQIk2gxXtLjrColSfR_RfztOS3BU_qtjrqt-IkU0pnBDf2Ph5xXyDkN/exec?key=p001_ambassador_x9n2wy7k`,
+        followRedirects: true,
+      },
     },
   },
   preview: {
