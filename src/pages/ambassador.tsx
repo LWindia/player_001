@@ -130,27 +130,34 @@ export default function Ambassador() {
                     <img
                       src="https://res.cloudinary.com/dymamigxu/image/upload/v1775049856/Badge-updateumbyjn-removebg-preview_duyqcq.png"
                       alt=""
-                      className="w-full h-[280px] object-contain object-center"
+                      className="w-full h-[340px] object-contain object-center"
                       loading="lazy"
                       decoding="async"
                     />
                   </motion.div>
 
                   {/* CTA */}
-                  <motion.div {...fadeUpProps(0.3)} className="flex flex-col items-start gap-3 mb-8">
+                  <motion.div {...fadeUpProps(0.3)} className="flex flex-col items-center sm:items-start gap-3 mb-8">
                     <a href="#application-form" className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 font-display font-bold tracking-[0.2em] text-[11px] text-white bg-primary overflow-hidden clip-corner-all transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer">
                       <span className="absolute inset-0 bg-white/12 translate-y-full group-hover:translate-y-0 transition-transform duration-350 ease-out" />
                       <span className="relative z-10">BECOME A CAMPUS CHAMPION</span>
                     </a>
-                    <p className="text-white/70 text-[13px] leading-relaxed">
+                    <p className="text-white/70 text-[13px] leading-relaxed text-center sm:text-left">
                       Start your journey from your campus
                     </p>
                   </motion.div>
                 </div>
 
-                {/* Right: Single image card — desktop only */}
-                <motion.div {...fadeUpProps(0.2)} className="hidden md:block w-[280px] shrink-0">
-                  <div className="rounded-xl overflow-hidden border border-white/10 shadow-lg">
+                {/* Right: Single image card — desktop only with 3D tilt effect */}
+                <motion.div
+                  {...fadeUpProps(0.2)}
+                  className="hidden md:block w-[280px] shrink-0"
+                  whileHover={{ rotateY: -8, rotateX: 4, scale: 1.04 }}
+                  transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                  style={{ perspective: 800, transformStyle: "preserve-3d" }}
+                >
+                  <div className="rounded-xl overflow-hidden border border-white/20 shadow-[0_0_30px_rgba(255,46,46,0.25),0_20px_60px_rgba(0,0,0,0.6)] relative">
+                    <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-white/5 pointer-events-none z-10 rounded-xl" />
                     <img
                       src="https://res.cloudinary.com/dgin6wumo/image/upload/v1775039035/Screenshot_20260401-155208_umbyjn.png"
                       alt=""
