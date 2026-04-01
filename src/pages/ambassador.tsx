@@ -148,13 +148,10 @@ export default function Ambassador() {
                   </motion.div>
                 </div>
 
-                {/* Right: Single image card — desktop only with 3D tilt effect */}
+                {/* Right: Single image card — desktop only */}
                 <motion.div
                   {...fadeUpProps(0.2)}
                   className="hidden md:block w-[280px] shrink-0"
-                  whileHover={{ rotateY: -8, rotateX: 4, scale: 1.04 }}
-                  transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                  style={{ perspective: 800, transformStyle: "preserve-3d" }}
                 >
                   <div className="rounded-xl overflow-hidden border border-white/20 shadow-[0_0_30px_rgba(255,46,46,0.25),0_20px_60px_rgba(0,0,0,0.6)] relative">
                     <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-white/5 pointer-events-none z-10 rounded-xl" />
