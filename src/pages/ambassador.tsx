@@ -138,7 +138,7 @@ export default function Ambassador() {
                 </div>
 
                 {/* Right: Single image card */}
-                <motion.div {...fadeUpProps(0.2)} className="hidden md:block w-[280px] shrink-0">
+                <motion.div {...fadeUpProps(0.2)} className="w-full md:w-[280px] shrink-0">
                   <div className="rounded-xl overflow-hidden border border-white/10 shadow-lg">
                     <img
                       src="https://res.cloudinary.com/dgin6wumo/image/upload/v1775039035/Screenshot_20260401-155208_umbyjn.png"
