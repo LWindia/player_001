@@ -25,6 +25,7 @@ import Terms from "@/pages/terms";
 import Privacy from "@/pages/privacy";
 import Enquire from "@/pages/enquire";
 import ThankYou2 from "@/pages/thank-you2";
+import Ambassador from "@/pages/ambassador";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -80,6 +81,7 @@ function Router() {
       <Route path="/privacy" component={Privacy} />
       <Route path="/enquire" component={Enquire} />
       <Route path="/thank-you2" component={ThankYou2} />
+      <Route path="/ambassador" component={Ambassador} />
       <Route component={NotFound} />
     </Switch>
   );
