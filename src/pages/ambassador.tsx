@@ -140,10 +140,19 @@ export default function Ambassador() {
                 {/* Right: Single image card */}
                 <motion.div {...fadeUpProps(0.2)} className="w-full md:w-[280px] shrink-0">
                   <div className="rounded-xl overflow-hidden border border-white/10 shadow-lg">
+                    {/* Mobile image */}
+                    <img
+                      src="https://res.cloudinary.com/dymamigxu/image/upload/v1775049856/Badge-updateumbyjn-removebg-preview_duyqcq.png"
+                      alt=""
+                      className="block md:hidden w-full h-[200px] object-contain object-center"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    {/* Desktop image */}
                     <img
                       src="https://res.cloudinary.com/dgin6wumo/image/upload/v1775039035/Screenshot_20260401-155208_umbyjn.png"
                       alt=""
-                      className="w-full h-auto object-cover"
+                      className="hidden md:block w-full h-auto object-cover"
                       loading="lazy"
                       decoding="async"
                     />
