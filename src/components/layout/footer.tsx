@@ -62,13 +62,11 @@ export function Footer() {
             <ul className="space-y-2.5 md:space-y-3.5">
               {[
                 { label: "Home", path: "/" },
-                { label: "The Arena", path: "/arena" },
-                { label: "How The Game Works", path: "/game" },
-                { label: "Player Journey", path: "/journey" },
-                { label: "Rewards", path: "/rewards" },
-                { label: "Opportunities", path: "/opportunities" },
+                { label: "Game Access Pass", path: "/viewers" },
+                { label: "Careers", path: "/careers" },
+                { label: "Become a Sponsor", path: "/sponsorship" },
                 { label: "FAQ", path: "/faq" },
-                { label: "Register", path: "/register" },
+                { label: "Enquire Now", path: "/enquire" },
               ].map(({ label, path }, i) => (
                 <li key={i}>
                   <Link
@@ -88,8 +86,7 @@ export function Footer() {
             <h4 className="text-[9px] md:text-[10px] font-display font-semibold text-white/30 mb-4 md:mb-6 uppercase tracking-[0.35em] pl-3 border-l border-primary/40">Legal</h4>
             <ul className="space-y-2.5 md:space-y-3.5">
               {[
-                { label: "Legal & Compliance", path: "/legal" },
-                { label: "Terms & conditions", path: "/terms" },
+                { label: "Terms & Conditions", path: "/terms" },
                 { label: "Privacy Policy", path: "/privacy" },
               ].map(({ label, path }, i) => (
                 <li key={i}>

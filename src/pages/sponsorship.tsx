@@ -1,6 +1,6 @@
 import type React from "react";
 import { useState, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Volume2, VolumeX } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -187,6 +187,150 @@ export default function Sponsorship() {
             </motion.div>
           </div>
         </section>
+
+        {/* ── EPISODE TIMELINE ────────────────────────────────────────────── */}
+        {(() => {
+          const episodes = [
+            { ep: "01", title: "Decision Making",    date: "09th August, 2026",     physical: false },
+            { ep: "02", title: "Strategic Thinking", date: "16th August, 2026",     physical: false },
+            { ep: "03", title: "Leadership",         date: "23rd August, 2026",     physical: false },
+            { ep: "04", title: "Negotiation",        date: "30th August, 2026",     physical: false },
+            { ep: "05", title: "Crisis Handling",    date: "06th September, 2026",  physical: false },
+            { ep: "06", title: "Physical Arena",     date: "20th September, 2026",  physical: true  },
+            { ep: "07", title: "Physical Arena",     date: "27th September, 2026",  physical: true  },
+          ];
+
+          function TimelineSection() {
+            const ref = useRef<HTMLDivElement>(null);
+            const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.8", "end 0.2"] });
+            const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
+            return (
+              <section ref={ref} className="py-12 md:py-20 px-5 sm:px-8 bg-black border-y border-white/[0.05] overflow-hidden">
+                <div className="max-w-5xl mx-auto">
+                  {/* Header */}
+                  <motion.div {...fadeUpProps()} className="text-center mb-14">
+                    <div className="flex items-center justify-center gap-3 mb-4">
+                      <span className="w-10 h-px bg-primary block" style={{ boxShadow: "0 0 8px rgba(255,46,46,0.9)" }} />
+                      <span className="text-[10px] tracking-[0.35em] text-primary font-display font-semibold uppercase">Arena Schedule 2026</span>
+                      <span className="w-10 h-px bg-primary block" style={{ boxShadow: "0 0 8px rgba(255,46,46,0.9)" }} />
+                    </div>
+                    <h2 className="text-[clamp(1.8rem,5vw,3.5rem)] font-display font-black text-white uppercase tracking-tight">
+                      THE EPISODE TIMELINE
+                    </h2>
+                    <p className="text-white/50 text-[14px] md:text-[16px] mt-3">7 Episodes. 7 Weeks. One Champion.</p>
+                  </motion.div>
+
+                  {/* Timeline */}
+                  <div className="relative">
+                    {/* Animated vertical line — desktop */}
+                    <div className="absolute left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2 hidden md:block bg-white/5">
+                      <motion.div className="w-full bg-primary origin-top" style={{ height: lineHeight, boxShadow: "0 0 8px rgba(255,46,46,0.8)" }} />
+                    </div>
+                    {/* Animated vertical line — mobile */}
+                    <div className="absolute left-5 top-0 bottom-0 w-[2px] md:hidden bg-white/5">
+                      <motion.div className="w-full bg-primary origin-top" style={{ height: lineHeight, boxShadow: "0 0 6px rgba(255,46,46,0.7)" }} />
+                    </div>
+
+                    {episodes.map((item, i) => {
+                      const isLeft = i % 2 === 0;
+                      return (
+                        <motion.div key={i} {...fadeUpProps(i * 0.09)} className="relative flex items-center mb-8 md:mb-12">
+
+                          {/* ── MOBILE ── */}
+                          <div className="flex items-center w-full md:hidden pl-14">
+                            {/* Horizontal connector */}
+                            <div className="absolute left-[40px] top-1/2 w-6 h-px -translate-y-1/2"
+                              style={{ background: item.physical ? "rgba(255,46,46,0.7)" : "rgba(255,255,255,0.2)" }} />
+                            {/* Node */}
+                            <div className={`absolute left-0 w-10 h-10 rounded-full flex items-center justify-center border-2 z-10 ${item.physical ? "border-primary bg-primary/20" : "border-white/30 bg-black"}`}
+                              style={item.physical ? { boxShadow: "0 0 20px rgba(255,46,46,0.8)" } : {}}>
+                              <span className={`font-display font-black text-[11px] ${item.physical ? "text-primary" : "text-white/60"}`}>{item.ep}</span>
+                            </div>
+                            {/* Card */}
+                            <div className={`flex-1 rounded-xl p-4 border relative overflow-hidden ${item.physical ? "border-primary/50 bg-primary/5" : "border-white/10 bg-white/[0.03]"}`}
+                              style={item.physical ? { boxShadow: "0 0 30px rgba(255,46,46,0.2)" } : {}}>
+                              {item.physical && <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent pointer-events-none" />}
+                              <div className="flex items-center gap-2 mb-1">
+                                <span className="text-white/30 text-[10px] font-display tracking-widest uppercase">Episode {item.ep}</span>
+                                {item.physical && <span className="text-[9px] bg-primary/20 text-primary border border-primary/40 px-2 py-0.5 rounded-full font-display uppercase tracking-wider">Live</span>}
+                              </div>
+                              <p className={`font-display font-black text-[16px] uppercase tracking-wide ${item.physical ? "text-primary" : "text-white"}`}>{item.title}</p>
+                              <p className="text-white/40 text-[11px] font-mono mt-1">{item.date}</p>
+                            </div>
+                          </div>
+
+                          {/* ── DESKTOP ── */}
+                          {/* Left card */}
+                          <div className={`hidden md:flex w-[45%] items-center ${isLeft ? "justify-end" : "invisible"}`}>
+                            {isLeft && (
+                              <div className="flex items-center w-full justify-end">
+                                <div className={`w-full rounded-2xl p-6 border relative overflow-hidden ${item.physical ? "border-primary/50 bg-primary/5" : "border-white/10 bg-white/[0.03]"}`}
+                                  style={item.physical ? { boxShadow: "0 0 40px rgba(255,46,46,0.2)" } : {}}>
+                                  {item.physical && <div className="absolute inset-0 bg-gradient-to-br from-primary/15 to-transparent pointer-events-none" />}
+                                  <div className="flex items-center gap-3 mb-3">
+                                    <span className="text-white/30 text-[11px] font-display tracking-widest uppercase">Episode {item.ep}</span>
+                                    {item.physical && <span className="text-[10px] bg-primary/20 text-primary border border-primary/40 px-2 py-0.5 rounded-full font-display uppercase tracking-wider">Live Arena</span>}
+                                  </div>
+                                  <p className={`font-display font-black text-[24px] uppercase tracking-tight leading-none mb-3 ${item.physical ? "text-primary" : "text-white"}`}>{item.title}</p>
+                                  <div className="flex items-center gap-2">
+                                    <span className="w-4 h-px bg-primary/60 block" />
+                                    <p className="text-white/50 text-[13px] font-mono">{item.date}</p>
+                                  </div>
+                                </div>
+                                {/* Horizontal connector right side of left card */}
+                                <div className="w-10 h-px shrink-0"
+                                  style={{ background: item.physical ? "rgba(255,46,46,0.6)" : "rgba(255,255,255,0.15)", boxShadow: item.physical ? "0 0 6px rgba(255,46,46,0.5)" : "none" }} />
+                              </div>
+                            )}
+                          </div>
+
+                          {/* Center node */}
+                          <div className="hidden md:flex w-[10%] justify-center items-center shrink-0 z-10">
+                            <div className={`w-16 h-16 rounded-full flex flex-col items-center justify-center border-2 ${item.physical ? "border-primary bg-primary/20" : "border-white/25 bg-[#0a0a0a]"}`}
+                              style={item.physical
+                                ? { boxShadow: "0 0 0 4px rgba(255,46,46,0.15), 0 0 30px rgba(255,46,46,0.7)" }
+                                : { boxShadow: "0 0 0 4px rgba(255,255,255,0.04)" }}>
+                              <span className="text-white/30 text-[8px] font-display uppercase tracking-widest">EP</span>
+                              <span className={`font-display font-black text-[18px] leading-none ${item.physical ? "text-primary" : "text-white"}`}>{item.ep}</span>
+                            </div>
+                          </div>
+
+                          {/* Right card */}
+                          <div className={`hidden md:flex w-[45%] items-center ${!isLeft ? "justify-start" : "invisible"}`}>
+                            {!isLeft && (
+                              <div className="flex items-center w-full justify-start">
+                                {/* Horizontal connector left side of right card */}
+                                <div className="w-10 h-px shrink-0"
+                                  style={{ background: item.physical ? "rgba(255,46,46,0.6)" : "rgba(255,255,255,0.15)", boxShadow: item.physical ? "0 0 6px rgba(255,46,46,0.5)" : "none" }} />
+                                <div className={`w-full rounded-2xl p-6 border relative overflow-hidden ${item.physical ? "border-primary/50 bg-primary/5" : "border-white/10 bg-white/[0.03]"}`}
+                                  style={item.physical ? { boxShadow: "0 0 40px rgba(255,46,46,0.2)" } : {}}>
+                                  {item.physical && <div className="absolute inset-0 bg-gradient-to-bl from-primary/15 to-transparent pointer-events-none" />}
+                                  <div className="flex items-center gap-3 mb-3">
+                                    <span className="text-white/30 text-[11px] font-display tracking-widest uppercase">Episode {item.ep}</span>
+                                    {item.physical && <span className="text-[10px] bg-primary/20 text-primary border border-primary/40 px-2 py-0.5 rounded-full font-display uppercase tracking-wider">Live Arena</span>}
+                                  </div>
+                                  <p className={`font-display font-black text-[24px] uppercase tracking-tight leading-none mb-3 ${item.physical ? "text-primary" : "text-white"}`}>{item.title}</p>
+                                  <div className="flex items-center gap-2">
+                                    <span className="w-4 h-px bg-primary/60 block" />
+                                    <p className="text-white/50 text-[13px] font-mono">{item.date}</p>
+                                  </div>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+
+                        </motion.div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </section>
+            );
+          }
+
+          return <TimelineSection />;
+        })()}
 
         {/* ── ARENA VIDEO ─────────────────────────────────────────────────── */}
         <section className="py-12 md:py-16 px-5 sm:px-8 bg-black">
